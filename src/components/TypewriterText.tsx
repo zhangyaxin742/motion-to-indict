@@ -10,7 +10,7 @@ interface TypewriterTextProps {
 export const TypewriterText = ({
   text,
   className = '',
-  typingSpeed = 40, // faster base speed
+  typingSpeed = 30, // faster base speed
   cursorBlinkRate = 500,
 }: TypewriterTextProps) => {
   const [displayedText, setDisplayedText] = useState('');
