@@ -45,24 +45,6 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="space-y-2">
-            <div className="text-4xl font-bold red-accent">47</div>
-            <div className="text-motion-light-gray">Reports Published</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-4xl font-bold red-accent">12</div>
-            <div className="text-motion-light-gray">Active Investigations</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-4xl font-bold red-accent">89K</div>
-            <div className="text-motion-light-gray">Community Members</div>
-          </div>
-        </div>
-      </section>
-
       {/* Latest Report Preview */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
