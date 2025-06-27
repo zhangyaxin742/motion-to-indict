@@ -16,7 +16,7 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
           <h1 className="heading-xl mb-6 animate-fade-in">
             An autopsy of political America— <span className="red-accent"> as told by its <em> 'radical'</em> youth.</span>
           </h1>
-          <div className="body-lg text-gray-400 font-oldnews mb-8 max-w-3xl mx-auto">
+          <div className="body-lg text-white-400 font-oldnews mb-8 max-w-3xl mx-auto">
             <TypewriterText 
               text="MOTION TO INDICT is the premier think tank for Gen Z. 
               From Congress to the classroom, our sole mandate is to expose the failures that our institutions footnote."
