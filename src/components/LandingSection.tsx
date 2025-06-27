@@ -34,8 +34,9 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-motion-red text-motion-red hover:bg-motion-red hover:text-white px-8 py-3"
+              className="border-motion-red text-black hover:bg-motion-red hover:text-white px-8 py-3"
               onClick={() => onTabChange('involved')}
+              variant="outline" 
             >
               Join the Movement
               <ArrowRight className="ml-2 h-4 w-4" />
