@@ -38,6 +38,7 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
               onClick={() => onTabChange('involved')}
             >
               Join the Movement
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
