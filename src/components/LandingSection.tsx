@@ -1,7 +1,7 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, FileText, Users, Target } from 'lucide-react';
+import { TypewriterText } from './TypewriterText';
 
 interface LandingSectionProps {
   onTabChange: (tab: string) => void;
@@ -16,10 +16,11 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
           <h1 className="heading-xl mb-6 animate-fade-in">
             An autopsy of political America— <span className="red-accent"> as told by its <em> 'radical'</em> youth.</span>
           </h1>
-          <p className="body-lg text-motion-light-gray mb-8 max-w-3xl mx-auto">
-            Motion to Indict is a youth-led think tank driving systemic change through bold research, 
-            urgent analysis, and direct engagement. We don't just study power—we challenge it.
-          </p>
+          <div className="body-lg text-motion-light-gray mb-8 max-w-3xl mx-auto">
+            <TypewriterText 
+              text="Motion to Indict is a youth-led think tank driving systemic change through bold research, urgent analysis, and direct engagement. We don't just study power—we challenge it."
+            />
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
