@@ -13,7 +13,7 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
       {/* Hero Section */}
       <section className="container mx-auto px-4 pt-20 pb-16">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="heading-xl mb-6 animate-fade-in">
+          <h1 className="heading-xl font-serif italic text-white text-center mb-6 animate-fade-in">
             An autopsy of political America— <span className="red-accent"> as told by its 'radical' youth.</span>
           </h1>
           <p className="body-lg text-motion-light-gray mb-8 max-w-3xl mx-auto">
