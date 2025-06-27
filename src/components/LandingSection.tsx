@@ -18,8 +18,8 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
           </h1>
           <div className="body-lg text-motion-light-gray mb-8 max-w-3xl mx-auto">
             <TypewriterText 
-              text="MOTION TO INDICT is Gen Z’s premier think tank—our unapologetic answer to Brookings, RAND, and CATO. 
-              From Congress to the classroom, we publish fieldnotes, interviews, and investigative briefs that drag broken institutions into the light."
+              text="MOTION TO INDICT is the premier think tank for Gen Z. From Congress to the classroom, 
+              our sole mandate is to expose the institutional failures that others footnote."
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
