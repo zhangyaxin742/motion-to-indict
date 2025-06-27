@@ -1,18 +1,17 @@
-
 import { useState, useEffect } from 'react';
 
 interface TypewriterTextProps {
   text: string;
   className?: string;
-  typingSpeed?: number;
+  typingSpeed?: number; // average speed per character in ms
   cursorBlinkRate?: number;
 }
 
-export const TypewriterText = ({ 
-  text, 
-  className = '', 
-  typingSpeed = 75, 
-  cursorBlinkRate = 500 
+export const TypewriterText = ({
+  text,
+  className = '',
+  typingSpeed = 40, // faster base speed
+  cursorBlinkRate = 500,
 }: TypewriterTextProps) => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,23 +20,26 @@ export const TypewriterText = ({
 
   useEffect(() => {
     if (currentIndex < text.length) {
+      // Randomize delay for natural effect
+      const randomDelay = typingSpeed + Math.random() * typingSpeed * 0.3;
+
       const timeout = setTimeout(() => {
-        setDisplayedText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, typingSpeed);
+        setDisplayedText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, randomDelay);
 
       return () => clearTimeout(timeout);
     } else {
       setIsTypingComplete(true);
-      // Hide cursor after typing is complete
-      setTimeout(() => setShowCursor(false), 1000);
+      // Hide cursor after a pause
+      setTimeout(() => setShowCursor(false), 800);
     }
   }, [currentIndex, text, typingSpeed]);
 
   useEffect(() => {
     if (!isTypingComplete) {
       const cursorInterval = setInterval(() => {
-        setShowCursor(prev => !prev);
+        setShowCursor((prev) => !prev);
       }, cursorBlinkRate);
 
       return () => clearInterval(cursorInterval);
