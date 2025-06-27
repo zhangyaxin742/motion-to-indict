@@ -21,7 +21,7 @@ export default {
 			fontFamily: {
 				'garamond': ['EB Garamond', 'Times New Roman', 'serif'],
 				'sans': ['Inter', 'system-ui', 'sans-serif'],
-              'oldnews': ['"Old Standard TT"', 'serif'],
+              'oldnews': ['"Courier Prime"', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
