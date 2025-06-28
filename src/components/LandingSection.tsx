@@ -23,24 +23,43 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-motion-red hover:bg-red-700 text-white px-8 py-3"
-              onClick={() => onTabChange('research')}
-            >
-              Read Our Research
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-motion-red text-black hover:bg-motion-red hover:text-white px-8 py-3"
-              onClick={() => onTabChange('involved')}
-            >
-              Join the Movement
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
+  <Button 
+    size="lg"
+    className={`
+      px-8 py-3
+      ${activeTab === 'research'
+        ? 'bg-red-900 text-white' // <-- SELECTED color
+        : 'bg-motion-red hover:bg-red-700 text-white'
+      }
+    `}
+    onClick={() => {
+      setActiveTab('research');
+      onTabChange('research');
+    }}
+  >
+    Read Our Research
+    <ArrowRight className="ml-2 h-4 w-4" />
+  </Button>
+
+  <Button 
+    variant="outline"
+    size="lg"
+    className={`
+      px-8 py-3
+      ${activeTab === 'involved'
+        ? 'bg-motion-red text-white'
+        : 'border-motion-red text-black hover:bg-motion-red hover:text-white'
+      }
+    `}
+    onClick={() => {
+      setActiveTab('involved');
+      onTabChange('involved');
+    }}
+  >
+    Join the Movement
+    <ArrowRight className="ml-2 h-4 w-4" />
+  </Button>
+</div>
         </div>
       </section>
 
