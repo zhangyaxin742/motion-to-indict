@@ -44,7 +44,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
       <div key={tab.id} className="relative group">
         <button
           className={cn(
-            "text-sm font-medium transition-colors hover:text-motion-red flex items-center gap-1",
+            "font-garamond text-sm font-medium transition-colors hover:text-motion-red flex items-center gap-1",
             activeTab.startsWith(tab.id) ? "text-motion-red border-b-2 border-motion-red pb-1" : "text-white"
           )}
         >
@@ -63,7 +63,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
               key={child.id}
               onClick={() => onTabChange(child.id)}
               className={cn(
-                "block w-full text-left px-4 py-2 text-sm hover:bg-motion-gray/30 transition-colors",
+                "font-garamond block w-full text-left px-4 py-2 text-sm hover:bg-motion-gray/30 transition-colors",
                 activeTab === child.id ? "text-motion-red" : "text-white"
               )}
             >
@@ -77,7 +77,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
         key={tab.id}
         onClick={() => onTabChange(tab.id)}
         className={cn(
-          "text-sm font-medium transition-colors hover:text-motion-red",
+          "font-garamond text-sm font-medium transition-colors hover:text-motion-red",
           activeTab === tab.id
             ? "text-motion-red border-b-2 border-motion-red pb-1"
             : "text-white"
@@ -114,7 +114,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
             setMobileMenuOpen(false);
           }}
           className={cn(
-            "block w-full text-left py-2 px-4 text-sm font-medium transition-colors hover:text-motion-red",
+            "font-garamond block w-full text-left py-2 px-4 text-sm font-medium transition-colors hover:text-motion-red",
             activeTab === child.id ? "text-motion-red" : "text-white"
           )}
         >
@@ -129,7 +129,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
           setMobileMenuOpen(false);
         }}
         className={cn(
-          "block w-full text-left py-2 px-4 text-sm font-medium transition-colors hover:text-motion-red",
+          "font-garamond block w-full text-left py-2 px-4 text-sm font-medium transition-colors hover:text-motion-red",
           activeTab === tab.id ? "text-motion-red" : "text-white"
         )}
       >
