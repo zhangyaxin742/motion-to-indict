@@ -30,12 +30,13 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button
-            onClick={() => onTabChange('home')}
-            className="font-garamond text-xl font-bold text-white hover:text-motion-red transition-colors"
-          >
-            Motion to Indict
-          </button>
+         <button
+  onClick={() => onTabChange('home')}
+  className="flex items-center space-x-1 font-garamond text-xl font-bold transition-colors"
+>
+  <span className="text-motion-red">Motion to</span>
+  <span className="text-white">Indict</span>
+        </button>
 
           {/* Desktop Navigation */}
 <nav className="hidden lg:flex items-center space-x-8 relative">
