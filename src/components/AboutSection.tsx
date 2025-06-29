@@ -30,10 +30,12 @@ export const AboutSection = () => {
           <h1 className="heading-xl mb-6">
            <span className="red-accent"> About Motion to </span> Indict
           </h1>
-            <div className="body-lg font-oldnews text-motion-light-gray">
-  <TypewriterText 
-    text="<em>Researchers. Journalists. Advocates. Radicals.</em>" 
+<div className="body-lg text-motion-light-gray">
+  <div className="font-oldnews italic">
+    <TypewriterText 
+      text="Researchers. Journalists. Advocates. Radicals."
     />
+  </div>
   <p className="mt-4">
     Call us what you will. We’re here to reject complacency—and live to document what systems ignore.
   </p>
