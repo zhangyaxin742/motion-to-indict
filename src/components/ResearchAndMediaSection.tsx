@@ -104,12 +104,11 @@ const liveUpdates = [
 
 const categories = [
   "All Reports",
-  "Environmental Justice",
-  "Education Policy", 
-  "Criminal Justice",
-  "Technology & Rights",
-  "Defense Policy",
-  "Healthcare Policy"
+  "Power & Governance",
+  "Economy & Inequality", 
+  "Technology & Surveillance",
+  "Health, Environment, & Infrastructure",
+  "Culture & Narrative",
 ];
 
 const getIcon = (type: string) => {
