@@ -170,9 +170,9 @@ export const ResearchAndMediaSection = () => {
   className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-motion-red hover:bg-red-700 text-white rounded-l-lg shadow-lg border-0 flex flex-col items-center justify-center h-36 w-12"
   style={{ writingMode: 'vertical-rl' }}
 >
-   <div className="flex flex-col items-center justify-center gap-y-2 pr-2">
+   <div className="flex flex-col items-center justify-center pr-2">
     <span className="text-base font-medium-garamond">In Media Res</span>
-    <ChevronLeft className="h-10 w-10" />
+    <ChevronLeft className="h-10 w-10 mt-1" />
   </div>
 </Button>
 
