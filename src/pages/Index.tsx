@@ -2,8 +2,7 @@
 import { useState } from 'react';
 import { Header } from '@/components/Header';
 import { LandingSection } from '@/components/LandingSection';
-import { ResearchSection } from '@/components/ResearchSection';
-import { MediaSection } from '@/components/MediaSection';
+import { ResearchAndMediaSection } from '@/components/ResearchAndMediaSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { AboutSection } from '@/components/AboutSection';
 import { InvolvedSection } from '@/components/InvolvedSection';
@@ -14,9 +13,8 @@ const Index = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 'research':
-        return <ResearchSection />;
       case 'media':
-        return <MediaSection />;
+        return <ResearchAndMediaSection />;
       case 'projects':
         return <ProjectsSection />;
       case 'about':
@@ -25,12 +23,11 @@ const Index = () => {
         return <InvolvedSection />;
       default:
         return (
-  <LandingSection
-    activeTab={activeTab}
-    onTabChange={setActiveTab}
-  />
-);
-      
+          <LandingSection
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+          />
+        );
     }
   };
 
