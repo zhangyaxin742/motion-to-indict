@@ -100,7 +100,7 @@ const Footer = () => {
         {/* Bottom disclaimer */}
         <div className="border-t border-motion-gray/20 mt-12 pt-8">
           <p className="text-xs text-motion-light-gray text-center max-w-4xl mx-auto leading-relaxed">
-            MOTION TO INDICT is an independent research collective. Our work is supported by reader contributions and operates free from institutional funding to maintain editorial independence. Views expressed are those of the research team and do not necessarily reflect those of any affiliated organizations or institutions.
+            "The truth will set you free, but first it will piss you off." <em> —Gloria Steinem </em>
           </p>
         </div>
       </div>
