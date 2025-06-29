@@ -63,7 +63,7 @@ const OngoingInvestigations = () => {
         {/* Mosaic Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Left column - small tiles */}
-          <div className="md:col-span-1 space-y-6">
+          <div className="md:col-span-2 space-y-6">
             {investigations.filter(inv => inv.size === 'small').slice(0, 2).map((investigation) => (
               <InvestigationTile key={investigation.id} investigation={investigation} />
             ))}
@@ -77,7 +77,7 @@ const OngoingInvestigations = () => {
           </div>
 
           {/* Right column - small tiles */}
-          <div className="md:col-span-1 space-y-6">
+          <div className="md:col-span-2 space-y-6">
             {investigations.filter(inv => inv.size === 'small').slice(2, 4).map((investigation) => (
               <InvestigationTile key={investigation.id} investigation={investigation} />
             ))}
@@ -100,11 +100,7 @@ interface Investigation {
 
 const InvestigationTile = ({ investigation, large = false }: { investigation: Investigation; large?: boolean }) => {
   return (
-    <div
-  className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${
-    large ? 'md:h-[34rem] h-96' : 'h-64'
-  }`}
->
+    <div className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${large ? 'h-96' : 'h-64'}`}>
       <div className="relative h-full bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-motion-red/50">
         {/* Background Image */}
         <div 
