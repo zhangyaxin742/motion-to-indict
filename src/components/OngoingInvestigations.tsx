@@ -60,28 +60,43 @@ const OngoingInvestigations = () => {
           Ongoing Investigations
         </h2>
 
-        {/* Mosaic Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-7 gap-6">
-          {/* Left column - small tiles */}
-          <div className="md:col-span-2 space-y-6">
-            {investigations.filter(inv => inv.size === 'small').slice(0, 2).map((investigation) => (
-              <InvestigationTile key={investigation.id} investigation={investigation} />
-            ))}
-          </div>
+    {/* Mosaic Grid */}
+<div className="grid grid-cols-1 md:grid-cols-7 md:grid-rows-2 gap-6">
+  {/* Top-left small tile */}
+  {investigations.filter(inv => inv.size === 'small').slice(0,1).map((investigation) => (
+    <div className="md:col-span-2 md:row-span-1">
+      <InvestigationTile key={investigation.id} investigation={investigation} />
+    </div>
+  ))}
 
-          {/* Center - large tile */}
-          <div className="md:col-span-3">
-            {investigations.filter(inv => inv.size === 'large').map((investigation) => (
-              <InvestigationTile key={investigation.id} investigation={investigation} large />
-            ))}
-          </div>
+  {/* Center large tile */}
+  {investigations.filter(inv => inv.size === 'large').map((investigation) => (
+    <div className="md:col-span-3 md:row-span-2">
+      <InvestigationTile key={investigation.id} investigation={investigation} large />
+    </div>
+  ))}
 
-          {/* Right column - small tiles */}
-          <div className="md:col-span-2 space-y-6">
-            {investigations.filter(inv => inv.size === 'small').slice(2, 4).map((investigation) => (
-              <InvestigationTile key={investigation.id} investigation={investigation} />
-            ))}
-          </div>
+  {/* Top-right small tile */}
+  {investigations.filter(inv => inv.size === 'small').slice(2,3).map((investigation) => (
+    <div className="md:col-span-2 md:row-span-1">
+      <InvestigationTile key={investigation.id} investigation={investigation} />
+    </div>
+  ))}
+
+  {/* Bottom-left small tile */}
+  {investigations.filter(inv => inv.size === 'small').slice(1,2).map((investigation) => (
+    <div className="md:col-span-2 md:row-span-1">
+      <InvestigationTile key={investigation.id} investigation={investigation} />
+    </div>
+  ))}
+
+  {/* Bottom-right small tile */}
+  {investigations.filter(inv => inv.size === 'small').slice(3,4).map((investigation) => (
+    <div className="md:col-span-2 md:row-span-1">
+      <InvestigationTile key={investigation.id} investigation={investigation} />
+    </div>
+  ))}
+</div>
         </div>
       </div>
     </section>
@@ -100,7 +115,11 @@ interface Investigation {
 
 const InvestigationTile = ({ investigation, large = false }: { investigation: Investigation; large?: boolean }) => {
   return (
-    <div className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${large ? 'h-96' : 'h-64'}`}>
+    <div
+  className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${
+    large ? 'h-96 md:h-auto' : 'h-64'
+  }`}
+>
       <div className="relative h-full bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-motion-red/50">
         {/* Background Image */}
         <div 
