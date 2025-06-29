@@ -97,7 +97,6 @@ const OngoingInvestigations = () => {
     </div>
   ))}
 </div>
-        </div>
       </div>
     </section>
   );
