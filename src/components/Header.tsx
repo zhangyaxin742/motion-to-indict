@@ -64,22 +64,24 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
                     </svg>
                   </button>
                   {/* Dropdown */}
-                  <div className="absolute left-0 mt-2 w-48 bg-motion-dark border border-motion-gray shadow-lg rounded hidden group-hover:block z-50">
-                    {tab.children.map((child) => (
-                      <button
-                        key={child.id}
-                        onClick={() => onTabChange(child.id)}
-                        className={cn(
-                          "font-garamond block w-full text-left px-4 py-2 text-base hover:bg-motion-gray/30 transition-colors",
-                          activeTab === child.id
-                            ? "text-motion-red"
-                            : "text-white"
-                        )}
-                      >
-                        {child.label}
-                      </button>
-                    ))}
-                  </div>
+                  {tab.children && tab.children.length > 0 && (
+                    <div className="absolute left-0 mt-2 w-48 bg-motion-dark border border-motion-gray shadow-lg rounded hidden group-hover:block z-50">
+                      {tab.children.map((child) => (
+                        <button
+                          key={child.id}
+                          onClick={() => onTabChange(child.id)}
+                          className={cn(
+                            "font-garamond block w-full text-left px-4 py-2 text-base hover:bg-motion-gray/30 transition-colors",
+                            activeTab === child.id
+                              ? "text-motion-red"
+                              : "text-white"
+                          )}
+                        >
+                          {child.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <button
@@ -141,23 +143,24 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
                     {tab.label}
                   </button>
                   {/* Children */}
-                  {tab.children.map((child) => (
-                    <button
-                      key={child.id}
-                      onClick={() => {
-                        onTabChange(child.id);
-                        setMobileMenuOpen(false);
-                      }}
-                      className={cn(
-                        "font-garamond block w-full text-left py-2 pl-8 pr-4 text-base font-medium transition-colors hover:text-motion-red",
-                        activeTab === child.id
-                          ? "text-motion-red"
-                          : "text-white"
-                      )}
-                    >
-                      {child.label}
-                    </button>
-                  ))}
+                  {tab.children.length > 0 &&
+                    tab.children.map((child) => (
+                      <button
+                        key={child.id}
+                        onClick={() => {
+                          onTabChange(child.id);
+                          setMobileMenuOpen(false);
+                        }}
+                        className={cn(
+                          "font-garamond block w-full text-left py-2 pl-8 pr-4 text-base font-medium transition-colors hover:text-motion-red",
+                          activeTab === child.id
+                            ? "text-motion-red"
+                            : "text-white"
+                        )}
+                      >
+                        {child.label}
+                      </button>
+                    ))}
                 </div>
               ) : (
                 <button
