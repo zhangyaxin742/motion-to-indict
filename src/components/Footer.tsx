@@ -82,25 +82,14 @@ const Footer = () => {
               <p>
                 All research published under Creative Commons Attribution 4.0
               </p>
-              <div className="space-y-1 mt-4">
-                <a href="#" className="block hover:text-white transition-colors">
-                  Privacy Policy
-                </a>
-                <a href="#" className="block hover:text-white transition-colors">
-                  Terms of Use
-                </a>
-                <a href="#" className="block hover:text-white transition-colors">
-                  Editorial Standards
-                </a>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom disclaimer */}
+        {/* Bottom quote */}
         <div className="border-t border-motion-gray/20 mt-12 pt-8">
           <p className="text-xs text-motion-light-gray text-center max-w-4xl mx-auto leading-relaxed">
-            "The truth will set you free, but first it will piss you off." <em> —Gloria Steinem </em>
+            "The truth will set you free, but first it will piss you off." <em> — Gloria Steinem </em>
           </p>
         </div>
       </div>
