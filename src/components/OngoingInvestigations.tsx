@@ -49,11 +49,6 @@ const OngoingInvestigations = () => {
       size: "small"
     }
   ] as const;
-
-  return (
-    <section className="bg-black py-20 px-6">
-      {/* Red divider line */}
-      <div className="w-full h-px bg-motion-red mb-16"></div>
       
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center mb-16">
