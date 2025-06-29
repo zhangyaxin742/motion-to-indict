@@ -174,7 +174,7 @@ export const ResearchAndMediaSection = () => {
     width: '48px',    // Adjust width to taste
   }}
 >
-  <span className="text-xs font-medium">In Media Res</span>
+  <span className="text-sm font-medium">In Media Res</span>
   <ChevronLeft className="h-4 w-4 mt-2" />
 </Button>
 
