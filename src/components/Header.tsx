@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -52,7 +53,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
                   >
                     {tab.label}
                     <svg
-                      className="w-3 h-3 ml-1"
+                      className="w-3 h-3 ml-1 text-white transition-transform duration-200 group-hover:rotate-180"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -65,13 +66,13 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
                   </button>
                   {/* Dropdown */}
                   {tab.children && tab.children.length > 0 && (
-                    <div className="absolute left-0 mt-2 w-48 bg-motion-dark border border-motion-gray shadow-lg rounded hidden group-hover:block z-50">
+                    <div className="absolute left-0 mt-2 w-48 bg-motion-dark border border-motion-gray shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       {tab.children.map((child) => (
                         <button
                           key={child.id}
                           onClick={() => onTabChange(child.id)}
                           className={cn(
-                            "font-garamond block w-full text-left px-4 py-2 text-base hover:bg-motion-gray/30 transition-colors",
+                            "font-garamond block w-full text-left px-4 py-2 text-base hover:bg-motion-gray/30 transition-colors first:rounded-t-md last:rounded-b-md",
                             activeTab === child.id
                               ? "text-motion-red"
                               : "text-white"
