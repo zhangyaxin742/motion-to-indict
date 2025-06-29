@@ -34,7 +34,7 @@ export const AboutSection = () => {
            <em> Researchers. Journalists. Advocates. Radicals.</em>
             <br />
             Call us what you will. We're here to reject complacency—
-            and exist to document what institutions ignore.
+            and live to document what systems ignore.
           </p>
         </div>
 
