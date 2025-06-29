@@ -41,30 +41,3 @@
   color: #888;
 }
 
-/* Ripple container must be relative */
-.ripple {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Create the ripple element */
-.ripple::before {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  width: 100%;
-  padding-top: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: rgba(255, 255, 255, 0.3);
-  opacity: 1;
-  transition: transform 0.4s ease-out, opacity 0.8s ease-out;
-}
-
-/* On click, animate the ripple */
-.ripple:active::before {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0;
-  transition: transform 0.4s ease-out, opacity 0.8s ease-out;
-}

@@ -45,11 +45,11 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-         <Button 
+        <Button 
   size="lg"
   className={`
-    ripple
     px-8 py-3 border border-motion-red
+    transition duration-300 ease-in-out transform hover:scale-105 focus:ring-4 focus:ring-red-500 focus:ring-opacity-50
     ${
       activeTab === 'research'
         ? 'bg-white text-motion-red'
@@ -65,8 +65,8 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
 <Button 
   size="lg"
   className={`
-    ripple
     px-8 py-3 border border-motion-red
+    transition duration-300 ease-in-out transform hover:scale-105 focus:ring-4 focus:ring-red-500 focus:ring-opacity-50
     ${
       activeTab === 'involved'
         ? 'bg-white text-motion-red'
