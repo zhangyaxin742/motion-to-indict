@@ -229,23 +229,6 @@ export const InvolvedSection = () => {
           </div>
         </section>
 
-        {/* Join CTA */}
-        <section>
-          <Card className="bg-motion-dark text-white text-center">
-            <CardContent className="p-12">
-              <Users className="h-16 w-16 text-motion-red mx-auto mb-6" />
-              <h2 className="heading-md mb-4">Ready to Demand Accountability?</h2>
-              <p className="body-lg text-motion-light-gray mb-8 max-w-2xl mx-auto">
-                Join thousands of researchers, activists, and concerned citizens working 
-                to expose institutional failures and create systemic change.
-              </p>
-              <Button size="lg" className="bg-motion-red hover:bg-red-700 text-white px-8 py-3">
-                Join Motion to Indict
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </CardContent>
-          </Card>
-        </section>
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
             onClick={() => onTabChange("home")}
             className="flex items-center space-x-1 font-garamond text-xl font-bold transition-colors"
           >
-            <span className="text-motion-red">MOTION TO</span>
+            <span className="text-motion-red">MOTION TO </span>
             <span className="text-white"> INDICT </span>
           </button>
 
