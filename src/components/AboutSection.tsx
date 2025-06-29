@@ -1,27 +1,5 @@
 
 import { Card, CardContent } from '@/components/ui/card';
-import { Quote, Users, Target, Award } from 'lucide-react';
-
-const teamMembers = [
-  {
-    name: "Yaxin Zhang", 
-    role: "Founder & Executive Director",
-    background: "Ex-Google researcher specializing in algorithmic accountability and transparency.",
-    image: "photo-1507003211169-0a1dd7228f2d"
-  },
-  {
-    name: "Jordan Thompson",
-    role: "Field Operations Coordinator", 
-    background: "Community organizer with 8 years experience in environmental justice campaigns.",
-    image: "photo-1438761681033-6461ffad8d80"
-  },
-  {
-    name: "Samira Okafor",
-    role: "Legal Research Director",
-    background: "Civil rights attorney and former ACLU staff. Expert in FOIA and transparency law.",
-    image: "photo-1472099645785-5658abf4ff4e"
-  }
-];
 
 const values = [
   {
@@ -178,3 +156,26 @@ export const AboutSection = () => {
     </div>
   );
 };
+
+/* 
+const teamMembers = [
+  {
+    name: "Yaxin Zhang", 
+    role: "Founder & Executive Director",
+    background: "Ex-Google researcher specializing in algorithmic accountability and transparency.",
+    image: "photo-1507003211169-0a1dd7228f2d"
+  },
+  {
+    name: "Jordan Thompson",
+    role: "Field Operations Coordinator", 
+    background: "Community organizer with 8 years experience in environmental justice campaigns.",
+    image: "photo-1438761681033-6461ffad8d80"
+  },
+  {
+    name: "Samira Okafor",
+    role: "Legal Research Director",
+    background: "Civil rights attorney and former ACLU staff. Expert in FOIA and transparency law.",
+    image: "photo-1472099645785-5658abf4ff4e"
+  }
+];
+*/
