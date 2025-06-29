@@ -116,7 +116,7 @@ const InvestigationTile = ({ investigation, large = false }: { investigation: In
   return (
     <div
   className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${
-    large ? 'h-96 md:h-auto' : 'h-64'
+    large ? 'h-96 md:h-full' : 'h-64'
   }`}
 >
       <div className="relative h-full bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-motion-red/50">
