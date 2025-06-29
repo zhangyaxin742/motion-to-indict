@@ -55,12 +55,13 @@ const OngoingInvestigations = () => {
       {/* Red divider line */}
       <div className="w-full h-px bg-motion-red mb-16"></div>
       
-<div className="flex flex-col md:flex-row md:items-center mb-16">
-  <h2 className="text-4xl md:text-5xl font-garamond font-bold text-white mb-4 md:mb-0 md:whitespace-nowrap">
-    Ongoing Investigations
-  </h2>
-  <div className="md:flex-grow h-px bg-motion-red md:ml-4"></div>
-</div>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-garamond font-bold text-white mb-4 md:mb-0 md:whitespace-nowrap">
+            Ongoing Investigations
+          </h2>
+          <div className="md:flex-grow h-px bg-motion-red md:ml-4"></div>
+        </div>
 
     {/* Mosaic Grid */}
 <div className="grid grid-cols-1 md:grid-cols-7 md:grid-rows-2 gap-6">
