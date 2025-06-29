@@ -36,46 +36,6 @@ export const AboutSection = () => {
           </p>
         </div>
 
-        {/* Mission Quote */}
-        <section className="mb-20">
-          <Card className="bg-motion-gray/10 border-motion-red border-l-4">
-            <CardContent className="p-8">
-              <div className="flex flex-col lg:flex-row gap-8 items-center">
-                <Quote className="h-16 w-16 text-motion-red flex-shrink-0" />
-                <div>
-                  <blockquote className="font-garamond text-2xl lg:text-3xl font-medium mb-4 italic">
-                    "Power concedes nothing without a demand. It never did and it never will. 
-                    Our generation has the tools, the urgency, and the moral clarity to make 
-                    those demands impossible to ignore."
-                  </blockquote>
-                  <cite className="text-motion-light-gray">
-                    — Maya Rodriguez, Director of Investigations
-                  </cite>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Our Values */}
-        <section className="mb-20">
-          <h2 className="heading-md mb-12 text-center">Our Approach</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => {
-              const IconComponent = value.icon;
-              return (
-                <Card key={index} className="bg-motion-gray/10 border-motion-gray text-center">
-                  <CardContent className="p-8">
-                    <IconComponent className="h-12 w-12 text-motion-red mx-auto mb-4" />
-                    <h3 className="heading-sm mb-4">{value.title}</h3>
-                    <p className="body-md text-motion-light-gray">{value.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
         {/* Mission Statement */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
@@ -112,6 +72,25 @@ export const AboutSection = () => {
           </div>
         </section>
 
+                {/* Our Values */}
+        <section className="mb-20">
+          <h2 className="heading-md mb-12 text-center">Our Approach</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <Card key={index} className="bg-motion-gray/10 border-motion-gray text-center">
+                  <CardContent className="p-8">
+                    <IconComponent className="h-12 w-12 text-motion-red mx-auto mb-4" />
+                    <h3 className="heading-sm mb-4">{value.title}</h3>
+                    <p className="body-md text-motion-light-gray">{value.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+        
         {/* Impact Stats */}
         <section>
           <h2 className="heading-md mb-12 text-center">Impact Since 2019</h2>
