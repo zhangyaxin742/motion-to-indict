@@ -92,28 +92,28 @@ export const AboutSection = () => {
         </section>
         
         {/* Impact Stats */}
-        <section>
-          <h2 className="heading-md mb-12 text-center">Our Roadmap</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">Founded</div>
-              <div className="text-motion-light-gray">June 2025</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">5</div>
-              <div className="text-motion-light-gray">Investigations Published</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">1K</div>
-              <div className="text-motion-light-gray">Youth Reached</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">14</div>
-              <div className="text-motion-light-gray">Fieldnotes Captured</div>
-            </div>
-             <h2 className="heading-md mb-12 text-center">...and counting!</h2>
-          </div>
-        </section>
+    <section>
+  <h2 className="heading-md mb-12 text-center">Our Roadmap</h2>
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div>
+      <div className="text-4xl font-bold red-accent mb-2">Founded</div>
+      <div className="text-motion-light-gray">June 2025</div>
+    </div>
+    <div>
+      <div className="text-4xl font-bold red-accent mb-2">5</div>
+      <div className="text-motion-light-gray">Investigations Published</div>
+    </div>
+    <div>
+      <div className="text-4xl font-bold red-accent mb-2">1K</div>
+      <div className="text-motion-light-gray">Youth Reached</div>
+    </div>
+    <div>
+      <div className="text-4xl font-bold red-accent mb-2">14</div>
+      <div className="text-motion-light-gray">Fieldnotes Captured</div>
+    </div>
+  </div>
+  <h2 className="heading-md mt-12 font-oldnews text-center">...and counting!</h2>
+</section>
       </div>
     </div>
   );
