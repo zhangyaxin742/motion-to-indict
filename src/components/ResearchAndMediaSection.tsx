@@ -310,16 +310,6 @@ export const ResearchAndMediaSection = () => {
             })}
           </div>
 
-          {/* Secure Archive Notice */}
-          <div className="bg-motion-gray/20 rounded-lg p-8 border border-motion-gray max-w-2xl mx-auto">
-            <h3 className="heading-sm text-motion-dark mb-4">Secure Archive</h3>
-            <p className="body-md text-motion-gray">
-              All fieldnotes and evidence are automatically archived with cryptographic 
-              verification. Historical entries dating back to 2019 available to verified researchers.
-            </p>
-          </div>
-        </div>
-
         {/* Research Archive */}
         <div>
           <h2 className="heading-md text-motion-dark mb-8">Research Archive</h2>
