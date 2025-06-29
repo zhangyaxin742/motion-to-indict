@@ -43,26 +43,27 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
   {tabs.map((tab) =>
     tab.children ? (
       <div key={tab.id} className="relative group">
-        {/* Label Button */}
+        {/* Single button with label and caret */}
         <button
           onClick={() => onTabChange(tab.id)}
           className={cn(
             "font-garamond font-medium transition-colors hover:text-motion-red flex items-center gap-1",
-            activeTab.startsWith(tab.id) ? "text-motion-red border-b-2 border-motion-red pb-1" : "text-white"
+            activeTab.startsWith(tab.id)
+              ? "text-motion-red border-b-2 border-motion-red pb-1"
+              : "text-white"
           )}
         >
           {tab.label}
-        </button>
-        {/* Caret Button */}
-        <button
-          className="flex items-center"
-        >
           <svg
-            className="w-3 h-3 ml-1 text-white group-hover:text-motion-red"
+            className="w-3 h-3 ml-1"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
-            <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.174l3.71-3.942a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+            <path
+              fillRule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.174l3.71-3.942a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z"
+              clipRule="evenodd"
+            />
           </svg>
         </button>
         {/* Dropdown */}
@@ -98,57 +99,60 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
   )}
 </nav>
 
-
           {/* Mobile Menu Button */}
+       {mobileMenuOpen && (
+  <nav className="lg:hidden py-4 border-t border-motion-gray">
+    {tabs.map((tab) =>
+      tab.children ? (
+        <div key={tab.id}>
+          {/* Parent button */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-white hover:text-motion-red transition-colors"
+            onClick={() => {
+              onTabChange(tab.id);
+              setMobileMenuOpen(false);
+            }}
+            className={cn(
+              "font-garamond block w-full text-left py-2 px-4 text-base font-medium transition-colors hover:text-motion-red",
+              activeTab.startsWith(tab.id) ? "text-motion-red" : "text-white"
+            )}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            {tab.label}
           </button>
+          {/* Children */}
+          {tab.children.map((child) => (
+            <button
+              key={child.id}
+              onClick={() => {
+                onTabChange(child.id);
+                setMobileMenuOpen(false);
+              }}
+              className={cn(
+                "font-garamond block w-full text-left py-2 pl-8 pr-4 text-base font-medium transition-colors hover:text-motion-red",
+                activeTab === child.id ? "text-motion-red" : "text-white"
+              )}
+            >
+              {child.label}
+            </button>
+          ))}
         </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-        <nav className="lg:hidden py-4 border-t border-motion-gray">
-  {tabs.map((tab) =>
-    tab.children ? (
-      tab.children.map((child) => (
+      ) : (
         <button
-          key={child.id}
+          key={tab.id}
           onClick={() => {
-            onTabChange(child.id);
+            onTabChange(tab.id);
             setMobileMenuOpen(false);
           }}
           className={cn(
             "font-garamond block w-full text-left py-2 px-4 text-base font-medium transition-colors hover:text-motion-red",
-            activeTab === child.id ? "text-motion-red" : "text-white"
+            activeTab === tab.id ? "text-motion-red" : "text-white"
           )}
         >
-          {child.label}
+          {tab.label}
         </button>
-      ))
-    ) : (
-      <button
-        key={tab.id}
-        onClick={() => {
-          onTabChange(tab.id);
-          setMobileMenuOpen(false);
-        }}
-        className={cn(
-          "font-garamond block w-full text-left py-2 px-4 text-base font-medium transition-colors hover:text-motion-red",
-          activeTab === tab.id ? "text-motion-red" : "text-white"
-        )}
-      >
-        {tab.label}
-      </button>
-    )
-  )}
-</nav>
-
-        )}
+      )
+    )}
+  </nav>
+)}
       </div>
     </header>
   );
