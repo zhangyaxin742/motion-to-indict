@@ -167,15 +167,13 @@ export const ResearchAndMediaSection = () => {
       {/* Fixed In Media Res Trigger Button */}
 <Button
   onClick={() => setSidebarOpen(true)}
-  className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-motion-red hover:bg-red-700 text-white rounded-l-lg shadow-lg border-0 flex flex-col items-center justify-center"
-  style={{
-    writingMode: 'vertical-rl',
-    height: '180px',  // Adjust height to taste
-    width: '48px',    // Adjust width to taste
-  }}
+  className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-motion-red hover:bg-red-700 text-white rounded-l-lg shadow-lg border-0 flex flex-col items-center justify-center h-44 w-12"
+  style={{ writingMode: 'vertical-rl' }}
 >
-  <span className="text-sm font-medium">In Media Res</span>
-  <ChevronLeft className="h-4 w-4 mt-2" />
+  <div className="flex flex-col items-center justify-center py-4">
+    <span className="text-base font-medium">In Media Res</span>
+    <ChevronLeft className="h-4 w-4 mt-4" />
+  </div>
 </Button>
 
       {/* Sidebar Overlay */}
