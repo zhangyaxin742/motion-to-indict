@@ -1,7 +1,5 @@
 // New Coming Soon component:
 
-import Link from 'next/link';
-
 export const ProjectsSection = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-4 py-16">
@@ -12,11 +10,9 @@ export const ProjectsSection = () => {
         We’re preparing a suite of investigations, tools, and collaborations to advance accountability.
         Check back soon for updates.
       </p>
-      <Link href="/">
-        <button className="bg-motion-red hover:bg-red-700 transition-colors px-6 py-3 rounded font-semibold text-white">
-          Return to Home
-        </button>
-      </Link>
+      <a href="/" className="bg-motion-red hover:bg-red-700 transition-colors px-6 py-3 rounded font-semibold text-white">
+        Return to Home
+      </a>
     </div>
   );
 };
