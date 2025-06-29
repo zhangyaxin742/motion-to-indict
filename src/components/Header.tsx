@@ -12,7 +12,6 @@ const tabs = [
     id: "research",
     label: "Research & Commentary",
     children: [
-      { id: "media", label: "In Media Res" },
       { id: "projects", label: "Our Projects" },
     ],
   },
