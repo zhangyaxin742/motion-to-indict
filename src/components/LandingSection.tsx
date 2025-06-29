@@ -45,7 +45,7 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-       <Button 
+         <Button 
   size="lg"
   className={`
     ripple
@@ -59,6 +59,23 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
   onClick={() => onTabChange('research')}
 >
   Read Our Research
+  <ArrowRight className="ml-2 h-4 w-4" />
+</Button>
+
+<Button 
+  size="lg"
+  className={`
+    ripple
+    px-8 py-3 border border-motion-red
+    ${
+      activeTab === 'involved'
+        ? 'bg-white text-motion-red'
+        : 'bg-white text-black hover:bg-motion-red hover:text-white'
+    }
+  `}
+  onClick={() => onTabChange('involved')}
+>
+  Join the Movement
   <ArrowRight className="ml-2 h-4 w-4" />
 </Button>
           </div>
