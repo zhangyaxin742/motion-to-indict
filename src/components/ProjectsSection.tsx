@@ -1,4 +1,28 @@
+// New Coming Soon component:
 
+import Link from 'next/link';
+
+export const ProjectsSection = () => {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-4 py-16">
+      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
+        🚧 Projects Coming Soon
+      </h1>
+      <p className="text-motion-gray text-center mb-8 max-w-xl">
+        We’re preparing a suite of investigations, tools, and collaborations to advance accountability.
+        Check back soon for updates.
+      </p>
+      <Link href="/">
+        <button className="bg-motion-red hover:bg-red-700 transition-colors px-6 py-3 rounded font-semibold text-white">
+          Return to Home
+        </button>
+      </Link>
+    </div>
+  );
+};
+
+// Commenting out your original ProjectsSection component so you don't lose it:
+/*
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -81,7 +105,7 @@ export const ProjectsSection = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-16">
-        {/* Header */}
+
         <div className="max-w-4xl mx-auto mb-16">
           <h1 className="heading-xl text-motion-dark mb-6">
             Our <span className="red-accent">Projects</span>
@@ -93,7 +117,7 @@ export const ProjectsSection = () => {
           </p>
         </div>
 
-        {/* Active Campaigns */}
+    
         <section className="mb-20">
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Active Campaigns</h2>
@@ -173,7 +197,6 @@ export const ProjectsSection = () => {
           </div>
         </section>
 
-        {/* Published Tools */}
         <section className="mb-20">
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Published Tools</h2>
@@ -216,7 +239,6 @@ export const ProjectsSection = () => {
           </div>
         </section>
 
-        {/* Collaborations */}
         <section>
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Strategic Collaborations</h2>
@@ -248,3 +270,4 @@ export const ProjectsSection = () => {
     </div>
   );
 };
+*/
