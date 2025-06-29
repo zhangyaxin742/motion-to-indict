@@ -31,12 +31,10 @@ export const AboutSection = () => {
            <span className="red-accent"> About Motion to </span> Indict
           </h1>
           <p className="body-lg text-motion-light-gray">
-            Researchers. Journalists. Advocates. <em>Radicals.</em>
+           <em> Researchers. Journalists. Advocates. Radicals.</em>
             <br />
-            Call us what you will. Above all, we are <em>people</em>—
-            young people who refuse the stagnancy of the status quo.
-            Young people committed to holding institutions accountable—
-            and shaping the world we’ll inherit.
+            Call us what you will. We're here to reject complacency—
+            and exist to document what institutions ignore.
           </p>
         </div>
 
