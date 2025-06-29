@@ -37,7 +37,9 @@ export const AboutSection = () => {
     />
   </div>
   <p className="mt-4">
-    Call us what you will. We’re here to reject complacency—and live to document what systems ignore.
+    Call us what you will. 
+    We collect evidence, interrogate facts, 
+    and indict systems by the standards they claim to uphold.
   </p>
 </div>
         </div>
