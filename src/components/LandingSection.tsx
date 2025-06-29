@@ -1,7 +1,9 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Target, Users } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { ArrowRight, Mail } from 'lucide-react';
+import { useState } from 'react';
 import { TypewriterText } from './TypewriterText';
 import OngoingInvestigations from './OngoingInvestigations';
 import Footer from './Footer';
@@ -12,6 +14,22 @@ interface LandingSectionProps {
 }
 
 export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) => {
+  const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      // Placeholder for future backend integration
+      console.log('Newsletter subscription:', email);
+      setIsSubscribed(true);
+      setEmail('');
+      
+      // Reset success message after 3 seconds
+      setTimeout(() => setIsSubscribed(false), 3000);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-motion-dark to-black text-white">
       {/* Hero Section */}
@@ -65,47 +83,42 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
       {/* Ongoing Investigations Mosaic */}
       <OngoingInvestigations />
 
-      {/* Quick Access */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card 
-            className="bg-motion-gray/10 border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
-            onClick={() => onTabChange('media')}
-          >
-            <CardContent className="p-6 text-center">
-              <Target className="h-12 w-12 text-motion-red mx-auto mb-4" />
-              <h3 className="heading-sm mb-2">Live Updates</h3>
-              <p className="body-sm text-motion-light-gray">
-                Real-time fieldnotes, interviews, and evidence from ongoing investigations
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card 
-            className="bg-motion-gray/10 border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
-            onClick={() => onTabChange('projects')}
-          >
-            <CardContent className="p-6 text-center">
-              <Users className="h-12 w-12 text-motion-red mx-auto mb-4" />
-              <h3 className="heading-sm mb-2">Active Campaigns</h3>
-              <p className="body-sm text-motion-light-gray">
-                Coordinated efforts to drive accountability and systemic change
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card 
-            className="bg-motion-gray/10 border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
-            onClick={() => onTabChange('involved')}
-          >
-            <CardContent className="p-6 text-center">
-              <ArrowRight className="h-12 w-12 text-motion-red mx-auto mb-4" />
-              <h3 className="heading-sm mb-2">Take Action</h3>
-              <p className="body-sm text-motion-light-gray">
-                Join our community of researchers, activists, and accountability advocates
-              </p>
-            </CardContent>
-          </Card>
+      {/* Newsletter Subscription Section */}
+      <section className="bg-motion-gray/10 py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="heading-lg mb-4">
+            Subscribe to Our <span className="text-motion-red">Dispatches</span>
+          </h2>
+          <p className="body-md text-motion-light-gray mb-8 max-w-2xl mx-auto">
+            Get investigative reports, fieldnotes, and calls to action directly in your inbox.
+          </p>
+          
+          {isSubscribed ? (
+            <div className="bg-green-900/20 border border-green-500 rounded-md p-4 max-w-md mx-auto">
+              <p className="text-green-400 font-medium">Thank you for subscribing!</p>
+            </div>
+          ) : (
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+              <div className="relative flex-1 w-full">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-motion-light-gray" />
+                <Input
+                  type="email"
+                  placeholder="Enter your email..."
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="pl-10 bg-black/20 border-motion-gray text-white placeholder:text-motion-light-gray focus:border-motion-red focus:ring-motion-red"
+                  aria-label="Email address"
+                  required
+                />
+              </div>
+              <Button 
+                type="submit"
+                className="bg-motion-red hover:bg-red-700 text-white px-6 py-2 w-full sm:w-auto"
+              >
+                Subscribe
+              </Button>
+            </form>
+          )}
         </div>
       </section>
 
