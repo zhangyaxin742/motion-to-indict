@@ -1,3 +1,20 @@
+export const ProjectsSection = () => {
+  return (
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-20">
+      <h1 className="text-4xl font-bold mb-4 text-center">Coming Soon</h1>
+      <p className="text-lg text-gray-400 mb-8 text-center max-w-xl">
+        We're building out our project archive and resource library. Check back soon for live tools, campaigns, and collaborations.
+      </p>
+      <a
+        href="/"
+        className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded transition-colors"
+      >
+        Return to Home
+      </a>
+    </div>
+  );
+};
+
 /*
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
