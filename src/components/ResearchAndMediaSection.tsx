@@ -1,7 +1,10 @@
+
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { FileText, Calendar, ArrowRight, Clock, MapPin, Users, Camera } from 'lucide-react';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { FileText, Calendar, ArrowRight, Clock, MapPin, Users, Camera, X, ChevronLeft } from 'lucide-react';
 
 const reports = [
   {
@@ -131,200 +134,267 @@ const getTypeLabel = (type: string) => {
   }
 };
 
-export const ResearchAndMediaSection = () => (
-  <div className="min-h-screen bg-white">
-    <div className="container mx-auto px-4 py-16">
-      {/* Header */}
-      <div className="max-w-4xl mx-auto mb-16">
-        <h1 className="heading-xl text-motion-dark mb-6">
-          Research & <span className="red-accent">Commentary</span>
-        </h1>
-        <p className="body-lg text-motion-gray">
-          In-depth investigations, policy analysis, and urgent commentary on the systems 
-          that shape our world. Our research doesn't just document problems—it exposes 
-          the mechanisms of power that create and sustain them.
-        </p>
-      </div>
+export const ResearchAndMediaSection = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-      {/* Category Filter */}
-      <div className="flex flex-wrap gap-3 mb-12 justify-center">
-        {categories.map((category) => (
-          <Button
-            key={category}
-            variant={category === "All Reports" ? "default" : "outline"}
-            className={category === "All Reports" 
-              ? "bg-motion-red hover:bg-red-700 text-white"
-              : "border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"}
-          >
-            {category}
-          </Button>
-        ))}
-      </div>
+  // Handle escape key to close sidebar
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && sidebarOpen) {
+        setSidebarOpen(false);
+      }
+    };
 
-      {/* Featured Report */}
-      <div className="mb-16">
-        <h2 className="heading-md text-motion-dark mb-8">Featured Investigation</h2>
-        <Card className="border-2 border-motion-red">
-          <CardContent className="p-8">
-            <div className="flex flex-col lg:flex-row gap-8">
-              <div className="flex-1">
-                <Badge className="bg-motion-red text-white mb-4">URGENT REPORT</Badge>
-                <h3 className="heading-sm text-motion-dark mb-4">{reports[0].title}</h3>
-                <p className="body-md text-motion-gray mb-6">{reports[0].summary}</p>
-                <div className="flex items-center gap-4 text-sm text-motion-gray mb-6">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4" />
-                    {reports[0].date}
-                  </div>
-                  <span>•</span>
-                  <span>{reports[0].readTime} read</span>
-                  <span>•</span>
-                  <Badge variant="outline" className="border-motion-gray text-motion-gray">
-                    {reports[0].category}
-                  </Badge>
-                </div>
-                <Button className="bg-motion-red hover:bg-red-700 text-white">
-                  Read Full Report
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-              <div className="lg:w-80">
-                <div className="bg-motion-dark rounded-lg p-6 text-white">
-                  <FileText className="h-16 w-16 text-motion-red mx-auto mb-4" />
-                  <div className="text-center">
-                    <div className="text-2xl font-bold mb-2">47 pages</div>
-                    <div className="text-sm text-motion-light-gray">Comprehensive Analysis</div>
-                  </div>
-                </div>
-              </div>
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [sidebarOpen]);
+
+  // Prevent background scroll when sidebar is open
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [sidebarOpen]);
+
+  return (
+    <div className="min-h-screen bg-white relative">
+      {/* Fixed In Media Res Trigger Button */}
+      <Button
+        onClick={() => setSidebarOpen(true)}
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-motion-red hover:bg-red-700 text-white px-3 py-6 rounded-l-lg shadow-lg border-0"
+        style={{ writingMode: 'vertical-rl' }}
+      >
+        <span className="text-sm font-medium">In Media Res</span>
+        <ChevronLeft className="h-4 w-4 mt-2" />
+      </Button>
+
+      {/* Sidebar Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-50 transition-opacity"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* Sidebar Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full md:w-1/3 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+          sidebarOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Sidebar Header */}
+          <div className="flex items-center justify-between p-6 border-b border-motion-gray">
+            <div>
+              <h2 className="heading-md text-motion-dark">In Media <span className="red-accent">Res</span></h2>
+              <p className="body-sm text-motion-gray mt-1">Real-time fieldnotes and documentation</p>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setSidebarOpen(false)}
+              className="hover:bg-motion-gray/20"
+            >
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
 
-      {/* In Media Res */}
-      <div className="mb-16">
-        <h2 className="heading-md text-motion-dark mb-4">In Media <span className="red-accent">Res</span></h2>
-        <p className="body-md text-motion-gray mb-8 max-w-3xl">
-          Real-time fieldnotes and documentation from our investigations.
-        </p>
-
-        {/* Status Bar */}
-        <div className="bg-motion-gray/20 rounded-lg p-4 border border-motion-gray mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-motion-red rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-motion-dark">LIVE</span>
-            </div>
-            <div className="text-sm text-motion-gray">
-              12 active investigations • 5 field teams deployed • Last update: 2 hours ago
+          {/* Status Bar */}
+          <div className="bg-motion-gray/20 p-4 border-b border-motion-gray">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-motion-red rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-motion-dark">LIVE</span>
+              </div>
+              <div className="text-sm text-motion-gray">
+                12 active investigations • Last update: 2 hours ago
+              </div>
             </div>
           </div>
+
+          {/* Scrollable Live Updates */}
+          <ScrollArea className="flex-1">
+            <div className="p-6 space-y-6">
+              {liveUpdates.map((update, index) => {
+                const IconComponent = getIcon(update.type);
+                return (
+                  <Card
+                    key={index}
+                    className={`bg-white border-motion-gray hover:border-motion-red transition-colors ${
+                      update.urgent ? 'border-l-4 border-l-motion-red' : ''
+                    }`}
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex gap-4">
+                        <div className="flex flex-col items-center gap-2 w-16">
+                          <div className="p-2 bg-motion-red/20 rounded-lg">
+                            <IconComponent className="h-5 w-5 text-motion-red" />
+                          </div>
+                          <Badge 
+                            variant="outline" 
+                            className={`border-motion-red text-motion-red text-xs ${
+                              update.urgent ? 'bg-motion-red/10' : ''
+                            }`}
+                          >
+                            {getTypeLabel(update.type)}
+                          </Badge>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start gap-2 mb-2">
+                            <h3 className="heading-sm text-motion-dark text-sm leading-tight">{update.title}</h3>
+                            {update.urgent && (
+                              <Badge className="bg-motion-red text-white text-xs">URGENT</Badge>
+                            )}
+                          </div>
+                          <p className="body-sm text-motion-gray mb-3 text-sm leading-relaxed">{update.content}</p>
+                          <div className="flex flex-col gap-2 text-xs text-motion-gray">
+                            <div className="flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              {update.timestamp}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MapPin className="h-3 w-3" />
+                              {update.location}
+                            </div>
+                          </div>
+                          <div className="flex flex-wrap gap-1 mt-3">
+                            {update.tags.map((tag, tagIndex) => (
+                              <Badge
+                                key={tagIndex}
+                                variant="outline"
+                                className="border-motion-gray text-motion-gray text-xs"
+                              >
+                                #{tag}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </ScrollArea>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-16">
+        {/* Header */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <h1 className="heading-xl text-motion-dark mb-6">
+            Research & <span className="red-accent">Commentary</span>
+          </h1>
+          <p className="body-lg text-motion-gray">
+            In-depth investigations, policy analysis, and urgent commentary on the systems 
+            that shape our world. Our research doesn't just document problems—it exposes 
+            the mechanisms of power that create and sustain them.
+          </p>
         </div>
 
-        {/* Live Feed */}
-        <div className="space-y-6 mb-8">
-          {liveUpdates.map((update, index) => {
-            const IconComponent = getIcon(update.type);
-            return (
+        {/* Category Filter */}
+        <div className="flex flex-wrap gap-3 mb-12 justify-center">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={category === "All Reports" ? "default" : "outline"}
+              className={category === "All Reports" 
+                ? "bg-motion-red hover:bg-red-700 text-white"
+                : "border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"}
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+
+        {/* Featured Report */}
+        <div className="mb-16">
+          <h2 className="heading-md text-motion-dark mb-8">Featured Investigation</h2>
+          <Card className="border-2 border-motion-red">
+            <CardContent className="p-8">
+              <div className="flex flex-col lg:flex-row gap-8">
+                <div className="flex-1">
+                  <Badge className="bg-motion-red text-white mb-4">URGENT REPORT</Badge>
+                  <h3 className="heading-sm text-motion-dark mb-4">{reports[0].title}</h3>
+                  <p className="body-md text-motion-gray mb-6">{reports[0].summary}</p>
+                  <div className="flex items-center gap-4 text-sm text-motion-gray mb-6">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      {reports[0].date}
+                    </div>
+                    <span>•</span>
+                    <span>{reports[0].readTime} read</span>
+                    <span>•</span>
+                    <Badge variant="outline" className="border-motion-gray text-motion-gray">
+                      {reports[0].category}
+                    </Badge>
+                  </div>
+                  <Button className="bg-motion-red hover:bg-red-700 text-white">
+                    Read Full Report
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="lg:w-80">
+                  <div className="bg-motion-dark rounded-lg p-6 text-white">
+                    <FileText className="h-16 w-16 text-motion-red mx-auto mb-4" />
+                    <div className="text-center">
+                      <div className="text-2xl font-bold mb-2">47 pages</div>
+                      <div className="text-sm text-motion-light-gray">Comprehensive Analysis</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Research Archive */}
+        <div>
+          <h2 className="heading-md text-motion-dark mb-8">Research Archive</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {reports.slice(1).map((report, index) => (
               <Card
                 key={index}
-                className={`bg-white border-motion-gray hover:border-motion-red transition-colors ${
-                  update.urgent ? 'border-l-4 border-l-motion-red' : ''
-                }`}
+                className="border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
               >
                 <CardContent className="p-6">
-                  <div className="flex flex-col lg:flex-row gap-6">
-                    <div className="flex lg:flex-col items-center lg:items-start gap-3 lg:w-32">
-                      <div className="p-3 bg-motion-red/20 rounded-lg">
-                        <IconComponent className="h-6 w-6 text-motion-red" />
-                      </div>
-                      <Badge 
-                        variant="outline" 
-                        className={`border-motion-red text-motion-red text-xs ${
-                          update.urgent ? 'bg-motion-red/10' : ''
-                        }`}
-                      >
-                        {getTypeLabel(update.type)}
-                      </Badge>
+                  <div className="mb-4">
+                    <Badge variant="outline" className="border-motion-gray text-motion-gray">
+                      {report.category}
+                    </Badge>
+                  </div>
+                  <h3 className="heading-sm text-motion-dark mb-3 line-clamp-2">{report.title}</h3>
+                  <p className="body-sm text-motion-gray mb-4 line-clamp-3">{report.summary}</p>
+                  <div className="flex items-center justify-between text-sm text-motion-gray">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      {report.date}
                     </div>
-                    <div className="flex-1">
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
-                        <h3 className="heading-sm text-motion-dark">{update.title}</h3>
-                        {update.urgent && (
-                          <Badge className="bg-motion-red text-white text-xs">URGENT</Badge>
-                        )}
-                      </div>
-                      <p className="body-md text-motion-gray mb-4">{update.content}</p>
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-motion-gray">
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-4 w-4" />
-                          {update.timestamp}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4" />
-                          {update.location}
-                        </div>
-                      </div>
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {update.tags.map((tag, tagIndex) => (
-                          <Badge
-                            key={tagIndex}
-                            variant="outline"
-                            className="border-motion-gray text-motion-gray text-xs"
-                          >
-                            #{tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
+                    <span>{report.readTime} read</span>
                   </div>
                 </CardContent>
               </Card>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Research Archive */}
-      <div>
-        <h2 className="heading-md text-motion-dark mb-8">Research Archive</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {reports.slice(1).map((report, index) => (
-            <Card
-              key={index}
-              className="border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
+            ))}
+          </div>
+          {/* Load More */}
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"
             >
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <Badge variant="outline" className="border-motion-gray text-motion-gray">
-                    {report.category}
-                  </Badge>
-                </div>
-                <h3 className="heading-sm text-motion-dark mb-3 line-clamp-2">{report.title}</h3>
-                <p className="body-sm text-motion-gray mb-4 line-clamp-3">{report.summary}</p>
-                <div className="flex items-center justify-between text-sm text-motion-gray">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4" />
-                    {report.date}
-                  </div>
-                  <span>{report.readTime} read</span>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        {/* Load More */}
-        <div className="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"
-          >
-            Load More Reports
-          </Button>
+              Load More Reports
+            </Button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
