@@ -37,48 +37,49 @@ export const AboutSection = () => {
     />
   </div>
   <p className="mt-4 font-oldnews text-base text-white">
-    Call us what you will. 
-    We collect evidence, interrogate facts, 
+   We collect evidence, interrogate facts, 
     and indict systems by very the standards they claim to uphold.
   </p>
 </div>
         </div>
 
-        {/* Mission Statement */}
-        <section className="mb-20">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="heading-md mb-8 text-center">Our Mission</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div>
-                <h3 className="heading-sm mb-4 red-accent">What We Do</h3>
-                <p className="body-md text-motion-light-gray mb-6">
-                  Motion to Indict conducts rigorous investigations into institutional 
-                  failures, corporate capture, and systemic corruption. We use FOIA 
-                  requests, data analysis, fieldwork, and direct engagement to expose 
-                  the mechanisms that allow powerful actors to escape accountability.
-                </p>
-                <p className="body-md text-motion-light-gray">
-                  Our research directly informs policy advocacy, legal action, and 
-                  public campaigns designed to create meaningful institutional change.
-                </p>
-              </div>
-              <div>
-                <h3 className="heading-sm mb-4 red-accent">Why We Exist</h3>
-                <p className="body-md text-motion-light-gray mb-6">
-                  Traditional think tanks operate within existing power structures, 
-                  often dependent on the very institutions they claim to study. 
-                  We operate independently, funded by individual donors and 
-                  committed to following evidence wherever it leads.
-                </p>
-                <p className="body-md text-motion-light-gray">
-                  As young people, we have nothing to lose and everything to gain 
-                  from honest, unflinching analysis of how power really operates 
-                  in America.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+{/* Mission Statement */}
+<section className="mb-20">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    
+    {/* Column 1 */}
+    <div>
+      <h3 className="heading-sm mb-4 text-shadow-500 red-accent">What We Do</h3>
+      <p className="body-md text-motion-light-gray-300 mb-6">
+        Motion to Indict conducts rigorous investigations into institutional 
+        failures, corporate capture, and systemic corruption. We use FOIA 
+        requests, data analysis, fieldwork, and direct engagement to expose 
+        the mechanisms that allow powerful actors to escape accountability.
+      </p>
+      <p className="body-md text-motion-light-gray">
+        Our research directly informs policy advocacy, legal action, and 
+        public campaigns designed to create meaningful institutional change.
+      </p>
+    </div>
+    
+    {/* Column 2 */}
+    <div>
+      <h3 className="heading-sm mb-4 red-accent">Why We Exist</h3>
+      <p className="body-md text-motion-light-gray mb-6">
+        Traditional think tanks operate within existing power structures, 
+        often dependent on the very institutions they claim to study. 
+        We operate independently, funded by individual donors and 
+        committed to following evidence wherever it leads.
+      </p>
+      <p className="body-md text-motion-light-gray">
+        As young people, we have nothing to lose and everything to gain 
+        from honest, unflinching analysis of how power really operates 
+        in America.
+      </p>
+    </div>
+    
+  </div>
+</section>
 
                 {/* Our Values */}
         <section className="mb-20">
