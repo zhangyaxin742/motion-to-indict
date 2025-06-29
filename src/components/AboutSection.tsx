@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from '@/components/ui/card';
+import { Target, Users, Award, Quote } from 'lucide-react';
 
 const values = [
   {
@@ -75,25 +76,6 @@ export const AboutSection = () => {
           </div>
         </section>
 
-        {/* Team */}
-        <section className="mb-20">
-          <h2 className="heading-md mb-12 text-center">Leadership Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-motion-gray/10 border-motion-gray">
-                <CardContent className="p-6 text-center">
-                  <div className="w-24 h-24 bg-motion-gray rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users className="h-12 w-12 text-motion-light-gray" />
-                  </div>
-                  <h3 className="heading-sm mb-2">{member.name}</h3>
-                  <div className="text-motion-red text-sm font-medium mb-3">{member.role}</div>
-                  <p className="body-sm text-motion-light-gray">{member.background}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
         {/* Mission Statement */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
@@ -158,6 +140,23 @@ export const AboutSection = () => {
 };
 
 /* 
+        <section className="mb-20">
+          <h2 className="heading-md mb-12 text-center">Leadership Team</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <Card key={index} className="bg-motion-gray/10 border-motion-gray">
+                <CardContent className="p-6 text-center">
+                  <div className="w-24 h-24 bg-motion-gray rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Users className="h-12 w-12 text-motion-light-gray" />
+                  </div>
+                  <h3 className="heading-sm mb-2">{member.name}</h3>
+                  <div className="text-motion-red text-sm font-medium mb-3">{member.role}</div>
+                  <p className="body-sm text-motion-light-gray">{member.background}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
 const teamMembers = [
   {
     name: "Yaxin Zhang", 
