@@ -22,14 +22,15 @@ export const LandingSection = ({ activeTab, onTabChange }) => {
               From Congress to the classroom, our sole mandate is to expose the failures that our institutions footnote."
             />
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+<div className="flex flex-col sm:flex-row gap-4 justify-center">
   <Button 
     size="lg"
     className={`
-      px-8 py-3
-      ${activeTab === 'research'
-        ? 'bg-red-900 text-white'
-        : 'bg-motion-red hover:bg-red-700 text-white'
+      px-8 py-3 border border-motion-red
+      ${
+        activeTab === 'research'
+          ? 'bg-white text-motion-red'
+          : 'bg-motion-red text-white hover:bg-red-700 hover:text-white'
       }
     `}
     onClick={() => onTabChange('research')}
@@ -39,13 +40,13 @@ export const LandingSection = ({ activeTab, onTabChange }) => {
   </Button>
 
   <Button 
-    variant="outline"
     size="lg"
     className={`
-      px-8 py-3
-      ${activeTab === 'involved'
-        ? 'bg-motion-red text-white'
-        : 'border-motion-red text-black hover:bg-motion-red hover:text-white'
+      px-8 py-3 border border-motion-red
+      ${
+        activeTab === 'involved'
+          ? 'bg-white text-motion-red'
+          : 'bg-white text-black hover:bg-motion-red hover:text-white'
       }
     `}
     onClick={() => onTabChange('involved')}
