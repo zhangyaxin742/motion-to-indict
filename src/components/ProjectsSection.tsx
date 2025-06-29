@@ -3,7 +3,7 @@
 export const ProjectsSection = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-4 py-16">
-      <h1 className="text-3xl md:text-5xl font-bold-garamond mb-6 text-center">
+      <h1 className="text-3xl md:text-5xl font-garamond mb-6 text-center">
         🚧 Projects Coming Soon
       </h1>
       <p className="text-motion-gray font-oldnews text-center mb-8 max-w-xl">
