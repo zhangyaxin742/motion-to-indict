@@ -3,13 +3,15 @@
 export const ProjectsSection = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-4 py-16">
-      <h1 className="text-3xl md:text-5xl font-bold-garamond mb-6 text-center">
+      <h1 className="text-3xl md:text-5xl font-garamond mb-6 text-center">
         🚧 PROJECTS COMING SOON
       </h1>
-      <p className="text-motion-gray font-oldnews text-center mb-8 max-w-xl">
-        We’re preparing a suite of policy analysis tools and grassroots campaigns to advance accountability.
-        Check back soon for updates.
-      </p>
+      <div className="body-lg text-white-400 font-oldnews mb-8 max-w-3xl mx-auto">
+            <TypewriterText 
+              text="We’re preparing a suite of policy analysis tools and grassroots campaigns to advance accountability.
+        Check back soon for updates!"
+            />
+          </div>
       <a href="/" className="bg-motion-red hover:bg-red-700 transition-colors px-6 py-3 rounded font-semibold text-white">
         Return to Home
       </a>
