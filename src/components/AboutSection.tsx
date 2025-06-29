@@ -28,12 +28,14 @@ export const AboutSection = () => {
         {/* Header */}
         <div className="max-w-4xl mx-auto mb-16 text-center">
           <h1 className="heading-xl mb-6">
-            About <span className="red-accent">Motion to Indict</span>
+           <span className="red-accent"> About Motion to </span> Indict
           </h1>
           <p className="body-lg text-motion-light-gray">
-            We are researchers, investigators, and accountability advocates who refuse 
-            to accept "that's just how things work" as an adequate explanation for 
-            institutional failure and systemic corruption.
+        Researchers. Journalists. Advocates. <em> Radicals. </em> <br> </br>
+Call us what you will. But above all, we are <em> people—</em> 
+            young people who refuse the stagnancy of the status quo. 
+            Young people committed to holding institutions accountable—
+            and along the way, shaping the world we’ll inherit.
           </p>
         </div>
 
