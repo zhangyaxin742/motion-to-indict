@@ -43,21 +43,29 @@ export const Header = ({ activeTab, onTabChange }: HeaderProps) => {
   {tabs.map((tab) =>
     tab.children ? (
       <div key={tab.id} className="relative group">
+        {/* Label Button */}
         <button
+          onClick={() => onTabChange(tab.id)}
           className={cn(
-            "font-garamond  font-medium transition-colors hover:text-motion-red flex items-center gap-1",
+            "font-garamond font-medium transition-colors hover:text-motion-red flex items-center gap-1",
             activeTab.startsWith(tab.id) ? "text-motion-red border-b-2 border-motion-red pb-1" : "text-white"
           )}
         >
           {tab.label}
+        </button>
+        {/* Caret Button */}
+        <button
+          className="flex items-center"
+        >
           <svg
-            className="w-3 h-3 ml-1"
+            className="w-3 h-3 ml-1 text-white group-hover:text-motion-red"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
             <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.174l3.71-3.942a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
           </svg>
         </button>
+        {/* Dropdown */}
         <div className="absolute left-0 mt-2 w-48 bg-motion-dark border border-motion-gray shadow-lg rounded hidden group-hover:block z-50">
           {tab.children.map((child) => (
             <button
