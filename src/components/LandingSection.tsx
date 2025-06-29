@@ -4,7 +4,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Target, Users } from 'lucide-react';
 import { TypewriterText } from './TypewriterText';
 import OngoingInvestigations from './OngoingInvestigations';
-import Footer from './Footer';
 
 interface LandingSectionProps {
   activeTab: string;
@@ -65,52 +64,30 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
       {/* Ongoing Investigations Mosaic */}
       <OngoingInvestigations />
 
-      {/* Quick Access */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card 
-            className="bg-motion-gray/10 border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
-            onClick={() => onTabChange('media')}
-          >
-            <CardContent className="p-6 text-center">
-              <Target className="h-12 w-12 text-motion-red mx-auto mb-4" />
-              <h3 className="heading-sm mb-2">Live Updates</h3>
-              <p className="body-sm text-motion-light-gray">
-                Real-time fieldnotes, interviews, and evidence from ongoing investigations
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card 
-            className="bg-motion-gray/10 border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
-            onClick={() => onTabChange('projects')}
-          >
-            <CardContent className="p-6 text-center">
-              <Users className="h-12 w-12 text-motion-red mx-auto mb-4" />
-              <h3 className="heading-sm mb-2">Active Campaigns</h3>
-              <p className="body-sm text-motion-light-gray">
-                Coordinated efforts to drive accountability and systemic change
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card 
-            className="bg-motion-gray/10 border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
-            onClick={() => onTabChange('involved')}
-          >
-            <CardContent className="p-6 text-center">
-              <ArrowRight className="h-12 w-12 text-motion-red mx-auto mb-4" />
-              <h3 className="heading-sm mb-2">Take Action</h3>
-              <p className="body-sm text-motion-light-gray">
-                Join our community of researchers, activists, and accountability advocates
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <Footer />
+{/* Subscribe Section */}
+<section className="container mx-auto px-4 py-20">
+  <div className="max-w-2xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-garamond font-bold mb-4">
+      Subscribe to Our Dispatches
+    </h2>
+    <p className="text-motion-light-gray mb-8">
+      Get our latest investigations, fieldnotes, and exclusive analysis delivered monthly.
+    </p>
+    <form className="flex flex-col sm:flex-row gap-4 justify-center">
+      <input 
+        type="email" 
+        placeholder="Your email address" 
+        className="w-full sm:w-auto px-4 py-3 rounded-md bg-motion-gray/10 border border-motion-gray focus:outline-none focus:ring-2 focus:ring-motion-red text-white"
+      />
+      <Button 
+        size="lg"
+        className="px-6 py-3 bg-motion-red text-white hover:bg-red-700"
+      >
+        Subscribe
+      </Button>
+    </form>
+  </div>
+</section>
     </div>
   );
 };
