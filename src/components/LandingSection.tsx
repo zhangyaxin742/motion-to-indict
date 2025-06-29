@@ -53,7 +53,7 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
     ${
       activeTab === 'research'
         ? 'bg-white text-motion-red'
-        : 'bg-motion-red text-white hover:bg-white hover:text-red-700'
+        : 'bg-motion-red text-white hover:bg-white hover:text-black'
     }
   `}
   onClick={() => onTabChange('research')}
