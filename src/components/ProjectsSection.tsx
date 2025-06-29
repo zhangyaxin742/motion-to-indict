@@ -6,8 +6,9 @@ import { TypewriterText } from '@/components/TypewriterText'; // make sure you h
 export const ProjectsSection = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-4 py-16">
-      <h1 className="text-3xl md:text-5xl font-garamond mb-6 text-center">
+      <h1 className="text-3xl md:text-5xl font-garamond mb-6 text-center"
          style={{ fontWeight: 700 }}
+        >
         🚧 PROJECTS COMING SOON
       </h1>
 
