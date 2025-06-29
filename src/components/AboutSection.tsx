@@ -36,10 +36,10 @@ export const AboutSection = () => {
       text="Researchers. Journalists. Advocates. Radicals."
     />
   </div>
-  <p className="mt-4">
+  <p className="mt-4 font-oldnews text-motion-white">
     Call us what you will. 
     We collect evidence, interrogate facts, 
-    and indict systems by the standards they claim to uphold.
+    and indict systems by very the standards they claim to uphold.
   </p>
 </div>
         </div>
