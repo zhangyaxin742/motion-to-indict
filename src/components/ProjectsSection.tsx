@@ -6,11 +6,11 @@ import { TypewriterText } from '@/components/TypewriterText'; // make sure you h
 export const ProjectsSection = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-4 py-16">
-      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
+      <h1 className="text-3xl md:text-5xl font-garamond-bold mb-6 text-center">
         🚧 PROJECTS COMING SOON
       </h1>
 
-      <div className="text-gray-400 text-lg mb-8 max-w-3xl mx-auto text-center">
+      <div className="text-gray-400 text-lg font-oldnews mb-8 max-w-3xl mx-auto text-center">
         <TypewriterText 
           text="We’re preparing a suite of policy analysis tools and grassroots campaigns to advance accountability. Check back soon for updates!"
         />
