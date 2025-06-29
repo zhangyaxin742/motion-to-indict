@@ -134,27 +134,3 @@
     @apply relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-motion-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
 }
-
-/* Ripple Effect Base */
-
-.ripple {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(10,10);
-  background: rgba(255, 255, 255, 0.3); /* or rgba(0,0,0,0.1) for dark ripple */
-  transition: transform 0.5s, opacity 1s;
-}
-
-.ripple:active::after {
-  transform: scale(0,0);
-  opacity: 1;
-  transition: 0s;
-}
