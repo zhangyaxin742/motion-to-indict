@@ -30,19 +30,23 @@ const Footer = () => {
             </h4>
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.instagram.com/motion2indict" 
+                  target="_blank"
+  rel="noopener noreferrer"
                 className="text-motion-light-gray hover:text-white transition-colors p-2 hover:bg-motion-gray/10 rounded"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
               </a>
               <a 
-                href="#" 
-                className="text-motion-light-gray hover:text-white transition-colors p-2 hover:bg-motion-gray/10 rounded"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
+  href="https://www.linkedin.com/company/motion-to-indict"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-motion-light-gray hover:text-white transition-colors p-2 hover:bg-motion-gray/10 rounded"
+  aria-label="LinkedIn"
+>
+  <Linkedin size={20} />
+</a>
             </div>
           </div>
 
