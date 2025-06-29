@@ -4,14 +4,8 @@ import { Quote, Users, Target, Award } from 'lucide-react';
 
 const teamMembers = [
   {
-    name: "Maya Rodriguez",
-    role: "Director of Investigations",
-    background: "Former investigative journalist at ProPublica. JD/PhD in Political Science.",
-    image: "photo-1494790108755-2616b345b4e7"
-  },
-  {
-    name: "Alex Chen", 
-    role: "Data Research Lead",
+    name: "Yaxin Zhang", 
+    role: "Founder & Executive Director",
     background: "Ex-Google researcher specializing in algorithmic accountability and transparency.",
     image: "photo-1507003211169-0a1dd7228f2d"
   },
