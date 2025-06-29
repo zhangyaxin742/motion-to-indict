@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { ArrowRight, FileText, Users, Target } from 'lucide-react';
 import { TypewriterText } from './TypewriterText';
 
@@ -8,6 +9,59 @@ interface LandingSectionProps {
 }
 
 export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
+  // ⬇️ Insert this array here:
+  const investigations = [
+    {
+      id: 1,
+      title: "Campus Speech Suppression",
+      tagline: "How universities silence dissent through bureaucracy",
+      date: "December 2024",
+      type: "brief",
+      image: "https://images.unsplash.com/photo-1527576539890-dfa815648363?w=400&h=300&fit=crop",
+      size: "small"
+    },
+    {
+      id: 2,
+      title: "Congressional Insider Trading Network",
+      tagline: "Mapping financial conflicts across party lines",
+      date: "November 2024",
+      type: "fieldnotes",
+      image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?w=400&h=300&fit=crop",
+      size: "small"
+    },
+    {
+      id: 3,
+      title: "The Democracy Theater Report",
+      tagline: "A comprehensive analysis of performative politics in the digital age",
+      date: "January 2025",
+      type: "brief",
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop",
+      size: "large"
+    },
+    {
+      id: 4,
+      title: "Climate Activism Surveillance",
+      tagline: "Federal monitoring of student environmental groups",
+      date: "October 2024",
+      type: "fieldnotes",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop",
+      size: "small"
+    },
+    {
+      id: 5,
+      title: "Social Media Censorship Files",
+      tagline: "Platform suppression of youth political discourse",
+      date: "September 2024",
+      type: "brief",
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop",
+      size: "small"
+    }
+  ] as const;
+
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b ...">
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-motion-dark to-black text-white">
       {/* Hero Section */}
@@ -44,53 +98,14 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
         </div>
       </section>
 
-      {/* Latest Report Preview */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center mb-8">
-            <h2 className="heading-md mr-4">Latest Investigation</h2>
-            <div className="h-px bg-motion-gray flex-1"></div>
-          </div>
-          
-          <Card className="bg-motion-gray/20 border-motion-gray hover:border-motion-red transition-colors">
-            <CardContent className="p-8">
-              <div className="flex flex-col lg:flex-row gap-8">
-                <div className="flex-1">
-                  <div className="text-sm text-motion-red mb-2">URGENT REPORT</div>
-                  <h3 className="heading-sm mb-4">
-                    Corporate Capture of Municipal Climate Policy: A Case Study in Regulatory Failure
-                  </h3>
-                  <p className="body-md text-motion-light-gray mb-6">
-                    Our six-month investigation reveals how fossil fuel companies have systematically 
-                    infiltrated city planning committees across three major metropolitan areas, 
-                    effectively neutralizing local climate initiatives while maintaining a facade of cooperation.
-                  </p>
-                  <div className="flex items-center gap-4 text-sm text-motion-light-gray">
-                    <span>Published March 15, 2024</span>
-                    <span>•</span>
-                    <span>12 min read</span>
-                    <span>•</span>
-                    <span>Environmental Justice</span>
-                  </div>
-                </div>
-                <div className="lg:w-80">
-                  <div className="bg-motion-dark rounded-lg p-6 border border-motion-gray">
-                    <div className="text-center">
-                      <FileText className="h-12 w-12 text-motion-red mx-auto mb-4" />
-                      <Button 
-                        className="w-full bg-motion-red hover:bg-red-700"
-                        onClick={() => onTabChange('research')}
-                      >
-                        Read Full Report
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+<section className="bg-black py-20 px-6">
+  {/* Red divider line */}
+  <div className="w-full h-px bg-mti-red mb-16"></div>
+
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">
+      Ongoing Investigations
+    </h2>
 
       {/* Quick Access */}
       <section className="container mx-auto px-4 py-16">

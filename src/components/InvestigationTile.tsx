@@ -1,65 +1,71 @@
+import { Badge } from '@/components/ui/badge';
 
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { FileText, ArrowRight } from 'lucide-react';
-
-interface InvestigationTileProps {
+interface Investigation {
+  id: number;
   title: string;
-  excerpt: string;
-  publishDate: string;
-  readTime: string;
-  category: string;
-  isUrgent?: boolean;
-  onReadMore?: () => void;
+  tagline: string;
+  date: string;
+  type: 'brief' | 'fieldnotes';
+  image: string;
+  size: 'small' | 'large';
 }
 
 export const InvestigationTile = ({
-  title,
-  excerpt,
-  publishDate,
-  readTime,
-  category,
-  isUrgent = false,
-  onReadMore
-}: InvestigationTileProps) => {
-  return (
-    <Card className="bg-motion-gray/20 border-motion-gray hover:border-motion-red transition-colors">
-      <CardContent className="p-6">
-        <div className="flex flex-col lg:flex-row gap-6">
-          <div className="flex-1">
-            {isUrgent && (
-              <div className="text-sm text-motion-red mb-2 font-semibold">
-                URGENT REPORT
-              </div>
-            )}
-            <h3 className="text-xl font-bold text-white mb-3">
-              {title}
-            </h3>
-            <p className="text-motion-light-gray mb-4 leading-relaxed">
-              {excerpt}
-            </p>
-            <div className="flex items-center gap-4 text-sm text-motion-light-gray">
-              <span>{publishDate}</span>
-              <span>•</span>
-              <span>{readTime}</span>
-              <span>•</span>
-              <span>{category}</span>
-            </div>
-          </div>
-          <div className="lg:w-48 flex items-center justify-center">
-            <div className="bg-motion-dark rounded-lg p-4 border border-motion-gray text-center">
-              <FileText className="h-8 w-8 text-motion-red mx-auto mb-3" />
-              <Button 
-                className="w-full bg-motion-red hover:bg-red-700 text-sm"
-                onClick={onReadMore}
-              >
-                Read Report
-                <ArrowRight className="ml-2 h-3 w-3" />
-              </Button>
-            </div>
-          </div>
+  investigation,
+  large = false,
+}: {
+  investigation: Investigation;
+  large?: boolean;
+}) => (
+  <div
+    className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${
+      large ? 'h-96' : 'h-64'
+    }`}
+  >
+    <div className="relative h-full bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-motion-red/50">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity"
+        style={{ backgroundImage: `url(${investigation.image})` }}
+      />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+      {/* Content */}
+      <div className="relative h-full p-6 flex flex-col justify-end">
+        {/* Type Badge */}
+        <div className="mb-3">
+          <Badge
+            variant="outline"
+            className={`text-xs font-mono ${
+              investigation.type === 'brief'
+                ? 'border-white text-white'
+                : 'border-motion-red text-motion-red'
+            }`}
+          >
+            {investigation.type.toUpperCase()}
+          </Badge>
         </div>
-      </CardContent>
-    </Card>
-  );
-};
+        {/* Title */}
+        <h3
+          className={`font-serif font-bold text-white mb-2 ${
+            large ? 'text-2xl' : 'text-lg'
+          }`}
+        >
+          {investigation.title}
+        </h3>
+        {/* Tagline */}
+        <p
+          className={`text-motion-light-gray mb-3 ${
+            large ? 'text-base' : 'text-sm'
+          }`}
+        >
+          {investigation.tagline}
+        </p>
+        {/* Date */}
+        <p className="text-xs font-mono text-motion-light-gray uppercase tracking-wider">
+          {investigation.date}
+        </p>
+      </div>
+    </div>
+  </div>
+);

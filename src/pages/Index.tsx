@@ -6,6 +6,7 @@ import { ResearchSection } from '@/components/ResearchSection';
 import { MediaSection } from '@/components/MediaSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { AboutSection } from '@/components/AboutSection';
+import { InvestigationTile } from '@/components/InvestigationTile';
 import { InvolvedSection } from '@/components/InvolvedSection';
 
 const Index = () => {
