@@ -93,8 +93,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom quote */}
-        <div className="border-t border-motion-gray/20 mt-12 pt-8">
-          <p className="text-xs text-motion-light-gray text-center max-w-4xl mx-auto leading-relaxed">
+        <div className="border-t border-motion-gray/20 mt-12 pt-4">
+          <p className="text-xs font-oldnews text-motion-light-gray text-center max-w-4xl mx-auto leading-relaxed">
             "The truth will set you free, but first it will piss you off." <em> — Gloria Steinem </em>
           </p>
         </div>
