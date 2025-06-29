@@ -24,7 +24,13 @@ const Index = () => {
       case 'involved':
         return <InvolvedSection />;
       default:
-        return <LandingSection onTabChange={setActiveTab} />;
+        return (
+  <LandingSection
+    activeTab={activeTab}
+    onTabChange={setActiveTab}
+  />
+);
+      
     }
   };
 

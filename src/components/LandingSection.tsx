@@ -7,7 +7,7 @@ interface LandingSectionProps {
   onTabChange: (tab: string) => void;
 }
 
-export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
+export const LandingSection = ({ activeTab, onTabChange }) => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-motion-dark to-black text-white">
       {/* Hero Section */}
@@ -28,14 +28,11 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
     className={`
       px-8 py-3
       ${activeTab === 'research'
-        ? 'bg-red-900 text-white' // <-- SELECTED color
+        ? 'bg-red-900 text-white'
         : 'bg-motion-red hover:bg-red-700 text-white'
       }
     `}
-    onClick={() => {
-      setActiveTab('research');
-      onTabChange('research');
-    }}
+    onClick={() => onTabChange('research')}
   >
     Read Our Research
     <ArrowRight className="ml-2 h-4 w-4" />
@@ -51,10 +48,7 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
         : 'border-motion-red text-black hover:bg-motion-red hover:text-white'
       }
     `}
-    onClick={() => {
-      setActiveTab('involved');
-      onTabChange('involved');
-    }}
+    onClick={() => onTabChange('involved')}
   >
     Join the Movement
     <ArrowRight className="ml-2 h-4 w-4" />
