@@ -84,7 +84,9 @@ const Footer = () => {
                 © 2025 MOTION TO INDICT
               </p>
               <p>
-                All research published under Creative Commons Attribution 4.0
+                MOTION TO INDICT is a student-led research collective committed to critical, impartial analysis. 
+                Our findings rely on public records, and all sources are vetted to the best of our ability. 
+                This non-commercial work exists to inform public understanding and foster open dialogue, not to defame.
               </p>
             </div>
           </div>
