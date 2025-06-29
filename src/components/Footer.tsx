@@ -13,7 +13,7 @@ const Footer = () => {
               File a Tip
             </h4>
             <p className="text-motion-light-gray text-sm mb-4">
-              Have information about institutional corruption, censorship, or systemic abuse?
+              Have a lead, a story, or evidence the public should see?
             </p>
             <a 
               href="#" 
