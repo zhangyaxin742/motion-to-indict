@@ -172,8 +172,8 @@ export const ResearchAndMediaSection = () => {
 >
   <div className="flex flex-col items-center justify-center py-4">
     <span className="text-base font-medium">In Media Res</span>
-    <div className="flex justify-center mt-4">
-      <ChevronLeft className="h-8 w-8" />
+    <div className="flex justify-center mt-6">
+      <ChevronLeft className="h-10 w-10" />
     </div>
   </div>
 </Button>
