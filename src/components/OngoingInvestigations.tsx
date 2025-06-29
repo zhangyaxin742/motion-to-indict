@@ -100,7 +100,11 @@ interface Investigation {
 
 const InvestigationTile = ({ investigation, large = false }: { investigation: Investigation; large?: boolean }) => {
   return (
-    <div className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${large ? 'h-96' : 'h-64'}`}>
+    <div
+  className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${
+    large ? 'md:h-[32rem] h-96' : 'h-64'
+  }`}
+>
       <div className="relative h-full bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-motion-red/50">
         {/* Background Image */}
         <div 
