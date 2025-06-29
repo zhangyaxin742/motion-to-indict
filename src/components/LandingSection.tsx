@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Target, Users } from 'lucide-react';
 import { TypewriterText } from './TypewriterText';
 import OngoingInvestigations from './OngoingInvestigations';
+import Footer from './Footer';
 
 interface LandingSectionProps {
   activeTab: string;
@@ -107,6 +108,9 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
           </Card>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
