@@ -93,23 +93,23 @@ export const AboutSection = () => {
         
         {/* Impact Stats */}
         <section>
-          <h2 className="heading-md mb-12 text-center">Impact Since 2019</h2>
+          <h2 className="heading-md mb-12 text-center">Our Roadmap</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold red-accent mb-2">47</div>
+              <div className="text-4xl font-bold red-accent mb-2">Founded</div>
+              <div className="text-motion-light-gray">June 2025</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold red-accent mb-2">5</div>
               <div className="text-motion-light-gray">Investigations Published</div>
             </div>
             <div>
-              <div className="text-4xl font-bold red-accent mb-2">12</div>
-              <div className="text-motion-light-gray">Policy Changes Influenced</div>
+              <div className="text-4xl font-bold red-accent mb-2">1K</div>
+              <div className="text-motion-light-gray">Youth Reached</div>
             </div>
             <div>
-              <div className="text-4xl font-bold red-accent mb-2">89K</div>
-              <div className="text-motion-light-gray">Community Members</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">340</div>
-              <div className="text-motion-light-gray">FOIA Requests Filed</div>
+              <div className="text-4xl font-bold red-accent mb-2">14</div>
+              <div className="text-motion-light-gray">Fieldnotes Captured</div>
             </div>
           </div>
         </section>
