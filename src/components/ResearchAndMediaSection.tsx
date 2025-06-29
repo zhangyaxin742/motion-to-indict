@@ -107,7 +107,7 @@ const categories = [
   "Power & Governance",
   "Economy & Inequality", 
   "Technology & Surveillance",
-  "Health, Environment, & Infrastructure",
+  "Health & Environment",
   "Culture & Narrative",
 ];
 
@@ -115,9 +115,8 @@ const getIcon = (type: string) => {
   switch (type) {
     case "fieldnote": return MapPin;
     case "interview": return Users;
-    case "evidence": return Camera;
     case "protest": return Users;
-    case "social": return Clock;
+    case "intel": return Camera;
     default: return Clock;
   }
 };
@@ -126,9 +125,8 @@ const getTypeLabel = (type: string) => {
   switch (type) {
     case "fieldnote": return "FIELD NOTE";
     case "interview": return "INTERVIEW";
-    case "evidence": return "EVIDENCE";
     case "protest": return "PROTEST LOG";
-    case "social": return "SOCIAL INTEL";
+    case "intel": return "ANON INTEL";
     default: return "UPDATE";
   }
 };
