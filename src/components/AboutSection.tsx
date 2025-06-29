@@ -111,6 +111,7 @@ export const AboutSection = () => {
               <div className="text-4xl font-bold red-accent mb-2">14</div>
               <div className="text-motion-light-gray">Fieldnotes Captured</div>
             </div>
+             <h2 className="heading-md mb-12 text-center">...and counting!</h2>
           </div>
         </section>
       </div>
