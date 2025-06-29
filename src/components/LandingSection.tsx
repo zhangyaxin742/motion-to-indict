@@ -121,9 +121,6 @@ export const LandingSection = ({ activeTab, onTabChange }: LandingSectionProps) 
           )}
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
