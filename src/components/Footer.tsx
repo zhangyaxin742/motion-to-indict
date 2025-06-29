@@ -55,16 +55,16 @@ const Footer = () => {
               <div className="flex items-start space-x-2">
                 <Mail size={16} className="text-motion-light-gray mt-1 flex-shrink-0" />
                 <a 
-                  href="mailto:collective@motiontoindict.org" 
+                  href="mailto:motiontoindict@gmail.com" 
                   className="text-motion-light-gray hover:text-white transition-colors text-sm"
                 >
-                  collective@motiontoindict.org
+                  motiontoindict@gmail.com
                 </a>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin size={16} className="text-motion-light-gray mt-1 flex-shrink-0" />
                 <p className="text-motion-light-gray text-sm">
-                  Various locations across<br />the United States
+                  Boston, MA
                 </p>
               </div>
             </div>
@@ -77,7 +77,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-2 text-xs text-motion-light-gray">
               <p>
-                © 2024 MOTION TO INDICT Collective
+                © 2025 MOTION TO INDICT
               </p>
               <p>
                 All research published under Creative Commons Attribution 4.0
