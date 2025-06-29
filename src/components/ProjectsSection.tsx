@@ -1,3 +1,4 @@
+// Coming Soon component
 export const ProjectsSection = () => {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-20">
@@ -15,7 +16,9 @@ export const ProjectsSection = () => {
   );
 };
 
-/*
+/* 
+// Commented out original ProjectsSection code and imports
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -36,7 +39,7 @@ const campaigns = [
   {
     title: "Defense Contractor Revolving Door Tracker",
     description: "Real-time monitoring of personnel movements between Pentagon and major defense contractors.",
-    status: "active", 
+    status: "active",
     progress: 89,
     team: "5 researchers",
     deadline: "April 2024",
@@ -83,7 +86,7 @@ const collaborations = [
     status: "Ongoing investigation"
   },
   {
-    organization: "Brennan Center for Justice", 
+    organization: "Brennan Center for Justice",
     project: "Voting Rights Database",
     status: "Data partnership"
   },
@@ -94,24 +97,26 @@ const collaborations = [
   }
 ];
 
+// Original ProjectsSection component
+
 export const ProjectsSection = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-16">
         {/* Header */}
-     /*   <div className="max-w-4xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto mb-16">
           <h1 className="heading-xl text-motion-dark mb-6">
             Our <span className="red-accent">Projects</span>
           </h1>
           <p className="body-lg text-motion-gray">
-            Active campaigns, published tools, and strategic collaborations driving 
-            accountability across institutions. Every project serves our mission: 
+            Active campaigns, published tools, and strategic collaborations driving
+            accountability across institutions. Every project serves our mission:
             exposing systems of power and creating pathways for change.
           </p>
         </div>
 
         {/* Active Campaigns */}
-      /*  <section className="mb-20">
+        <section className="mb-20">
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Active Campaigns</h2>
             <div className="h-px bg-motion-gray flex-1"></div>
@@ -119,7 +124,7 @@ export const ProjectsSection = () => {
 
           <div className="space-y-8">
             {campaigns.map((campaign, index) => (
-              <Card 
+              <Card
                 key={index}
                 className={`border-motion-gray hover:border-motion-red transition-colors ${
                   campaign.urgent ? 'border-l-4 border-l-motion-red' : ''
@@ -133,17 +138,18 @@ export const ProjectsSection = () => {
                         {campaign.urgent && (
                           <Badge className="bg-motion-red text-white">URGENT</Badge>
                         )}
-                        <Badge 
+                        <Badge
                           variant="outline"
-                          className={`${campaign.status === 'active' 
-                            ? 'border-green-500 text-green-700 bg-green-50' 
-                            : 'border-orange-500 text-orange-700 bg-orange-50'
+                          className={`${
+                            campaign.status === 'active'
+                              ? 'border-green-500 text-green-700 bg-green-50'
+                              : 'border-orange-500 text-orange-700 bg-orange-50'
                           }`}
                         >
                           {campaign.status.toUpperCase()}
                         </Badge>
                       </div>
-                      
+
                       <p className="body-md text-motion-gray mb-6">
                         {campaign.description}
                       </p>
@@ -191,7 +197,7 @@ export const ProjectsSection = () => {
         </section>
 
         {/* Published Tools */}
-   /*     <section className="mb-20">
+        <section className="mb-20">
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Published Tools</h2>
             <div className="h-px bg-motion-gray flex-1"></div>
@@ -207,11 +213,11 @@ export const ProjectsSection = () => {
                       {tool.category}
                     </Badge>
                   </div>
-                  
+
                   <h3 className="heading-sm text-motion-dark mb-3 text-center">
                     {tool.title}
                   </h3>
-                  
+
                   <p className="body-sm text-motion-gray mb-4 text-center">
                     {tool.description}
                   </p>
@@ -221,8 +227,8 @@ export const ProjectsSection = () => {
                     <div className="text-sm text-motion-gray">Active Users</div>
                   </div>
 
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"
                   >
                     Access Tool
@@ -234,7 +240,7 @@ export const ProjectsSection = () => {
         </section>
 
         {/* Collaborations */}
-   /*     <section>
+        <section>
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Strategic Collaborations</h2>
             <div className="h-px bg-motion-gray flex-1"></div>
