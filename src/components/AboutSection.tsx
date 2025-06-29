@@ -112,7 +112,7 @@ export const AboutSection = () => {
       <div className="text-motion-light-gray">Fieldnotes Captured</div>
     </div>
   </div>
-  <h2 className="heading-md mt-12 font-oldnews text-center">...and counting!</h2>
+  <h6 className="heading-md mt-12 font-oldnews text-base text-center">...and counting!</h6>
 </section>
       </div>
     </div>
