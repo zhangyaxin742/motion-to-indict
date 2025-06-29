@@ -1,4 +1,4 @@
-
+/*
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -82,7 +82,7 @@ export const ProjectsSection = () => {
     <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-16">
         {/* Header */}
-        <div className="max-w-4xl mx-auto mb-16">
+     /*   <div className="max-w-4xl mx-auto mb-16">
           <h1 className="heading-xl text-motion-dark mb-6">
             Our <span className="red-accent">Projects</span>
           </h1>
@@ -94,7 +94,7 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Active Campaigns */}
-        <section className="mb-20">
+      /*  <section className="mb-20">
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Active Campaigns</h2>
             <div className="h-px bg-motion-gray flex-1"></div>
@@ -174,7 +174,7 @@ export const ProjectsSection = () => {
         </section>
 
         {/* Published Tools */}
-        <section className="mb-20">
+   /*     <section className="mb-20">
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Published Tools</h2>
             <div className="h-px bg-motion-gray flex-1"></div>
@@ -217,7 +217,7 @@ export const ProjectsSection = () => {
         </section>
 
         {/* Collaborations */}
-        <section>
+   /*     <section>
           <div className="flex items-center mb-8">
             <h2 className="heading-md text-motion-dark mr-4">Strategic Collaborations</h2>
             <div className="h-px bg-motion-gray flex-1"></div>
@@ -248,3 +248,4 @@ export const ProjectsSection = () => {
     </div>
   );
 };
+*/
