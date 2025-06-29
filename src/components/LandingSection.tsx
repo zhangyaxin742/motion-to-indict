@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -9,7 +10,6 @@ interface LandingSectionProps {
 }
 
 export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
-  // ⬇️ Insert this array here:
   const investigations = [
     {
       id: 1,
@@ -58,10 +58,6 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
     }
   ] as const;
 
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b ...">
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-motion-dark to-black text-white">
       {/* Hero Section */}
@@ -98,14 +94,16 @@ export const LandingSection = ({ onTabChange }: LandingSectionProps) => {
         </div>
       </section>
 
-<section className="bg-black py-20 px-6">
-  {/* Red divider line */}
-  <div className="w-full h-px bg-mti-red mb-16"></div>
+      <section className="bg-black py-20 px-6">
+        {/* Red divider line */}
+        <div className="w-full h-px bg-mti-red mb-16"></div>
 
-  <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">
-      Ongoing Investigations
-    </h2>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white text-center mb-16">
+            Ongoing Investigations
+          </h2>
+        </div>
+      </section>
 
       {/* Quick Access */}
       <section className="container mx-auto px-4 py-16">
