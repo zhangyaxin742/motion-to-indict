@@ -9,18 +9,18 @@ import { Mail, FileText, Users, ArrowRight, CheckCircle } from 'lucide-react';
 
 const opportunities = [
   {
-    title: "Research Fellows",
+    title: "Cofounder - Communications Specialist",
     description: "3-month intensive research programs on specific accountability issues. Full training provided.",
     commitment: "15-20 hrs/week",
     skills: "Research, writing, data analysis",
-    spots: "8 positions available"
+    spots: "1 position available"
   },
   {
-    title: "Field Investigators", 
+    title: "Cofounder - Research Specialist", 
     description: "On-ground documentation and evidence gathering for active campaigns.",
     commitment: "Flexible schedule",
     skills: "Attention to detail, communication",
-    spots: "12 positions available"
+    spots: "1 position available"
   },
   {
     title: "Data Analysts",
