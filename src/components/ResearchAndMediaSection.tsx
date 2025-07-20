@@ -11,7 +11,7 @@ const reports = [
     title: "Corporate Capture of Municipal Climate Policy: A Case Study in Regulatory Failure",
     summary: "Six-month investigation reveals systematic infiltration of city planning committees by fossil fuel companies.",
     date: "March 15, 2024",
-    category: "Environmental Justice",
+    category: "Health & Environment",
     readTime: "12 min",
     featured: true
   },
@@ -19,7 +19,7 @@ const reports = [
     title: "The Privatization Pipeline: How Charter School Networks Extract Public Wealth",
     summary: "Analysis of financial flows between charter operators and private equity firms across five states.",
     date: "February 28, 2024",
-    category: "Education Policy",
+    category: "Economy & Inequality",
     readTime: "18 min",
     featured: false
   },
@@ -27,7 +27,7 @@ const reports = [
     title: "Policing for Profit: Asset Forfeiture and Municipal Budget Dependencies",
     summary: "Data-driven examination of how civil asset forfeiture has become essential revenue for local governments.",
     date: "February 10, 2024",
-    category: "Criminal Justice",
+    category: "Power & Governance",
     readTime: "15 min",
     featured: false
   },
@@ -43,7 +43,7 @@ const reports = [
     title: "The Revolving Door: Defense Contractors and Pentagon Personnel Exchange",
     summary: "Tracking career movements between major defense contractors and Department of Defense leadership positions.",
     date: "January 8, 2024",
-    category: "Defense Policy",
+    category: "Technology & Surveillance",
     readTime: "20 min",
     featured: false
   },
@@ -51,7 +51,7 @@ const reports = [
     title: "Healthcare Consolidation and Care Deserts: When Monopolies Kill",
     summary: "Investigation into hospital mergers and their impact on rural healthcare access and patient outcomes.",
     date: "December 15, 2023",
-    category: "Healthcare Policy",
+    category: "Culture & Narrative",
     readTime: "14 min",
     featured: false
   }
