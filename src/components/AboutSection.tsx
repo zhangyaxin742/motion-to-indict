@@ -81,7 +81,7 @@ export const AboutSection = () => {
   </div>
 </section>
 
-                {/* Our Values */}
+                {/* Our Values 
         <section className="mb-20">
           <h2 className="heading-md mb-12 text-center">Our Approach</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -100,7 +100,7 @@ export const AboutSection = () => {
           </div>
         </section>
         
-        {/* Impact Stats */}
+        Impact Stats
     <section>
   <h2 className="heading-md mb-12 text-center">Our Roadmap</h2>
   <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -129,9 +129,8 @@ export const AboutSection = () => {
       </div>
     </div>
   );
-};
+}; 
 
-/* 
         <section className="mb-20">
           <h2 className="heading-md mb-12 text-center">Leadership Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -148,7 +147,7 @@ export const AboutSection = () => {
               </Card>
             ))}
           </div>
-        </section>
+        </section> 
 const teamMembers = [
   {
     name: "Yaxin Zhang", 
@@ -169,4 +168,4 @@ const teamMembers = [
     image: "photo-1472099645785-5658abf4ff4e"
   }
 ];
-*/
+*/}
