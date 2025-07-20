@@ -13,14 +13,14 @@ const opportunities = [
     description: "3-month intensive research programs on specific accountability issues. Full training provided.",
     commitment: "15-20 hrs/week",
     skills: "Research, writing, data analysis",
-    spots: "1 position available"
+    spots: "Position Available"
   },
   {
     title: "Cofounder - Research Specialist", 
     description: "On-ground documentation and evidence gathering for active campaigns.",
     commitment: "Flexible schedule",
     skills: "Attention to detail, communication",
-    spots: "1 position available"
+    spots: "Position Available"
   },
   {
     title: "Data Analysts",
