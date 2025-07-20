@@ -1,61 +1,12 @@
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { FileText, Calendar, ArrowRight, Clock, MapPin, Users, Camera, X, ChevronLeft } from 'lucide-react';
-
-const reports = [
-  {
-    title: "Corporate Capture of Municipal Climate Policy: A Case Study in Regulatory Failure",
-    summary: "Six-month investigation reveals systematic infiltration of city planning committees by fossil fuel companies.",
-    date: "March 15, 2024",
-    category: "Health & Environment",
-    readTime: "12 min",
-    featured: true
-  },
-  {
-    title: "The Privatization Pipeline: How Charter School Networks Extract Public Wealth",
-    summary: "Analysis of financial flows between charter operators and private equity firms across five states.",
-    date: "February 28, 2024",
-    category: "Economy & Inequality",
-    readTime: "18 min",
-    featured: false
-  },
-  {
-    title: "Policing for Profit: Asset Forfeiture and Municipal Budget Dependencies",
-    summary: "Data-driven examination of how civil asset forfeiture has become essential revenue for local governments.",
-    date: "February 10, 2024",
-    category: "Power & Governance",
-    readTime: "15 min",
-    featured: false
-  },
-  {
-    title: "Digital Redlining: Broadband Access and the New Geography of Inequality",
-    summary: "Mapping the correlation between historical redlining and contemporary internet infrastructure gaps.",
-    date: "January 22, 2024",
-    category: "Technology & Surveillance",
-    readTime: "10 min",
-    featured: false
-  },
-  {
-    title: "The Revolving Door: Defense Contractors and Pentagon Personnel Exchange",
-    summary: "Tracking career movements between major defense contractors and Department of Defense leadership positions.",
-    date: "January 8, 2024",
-    category: "Technology & Surveillance",
-    readTime: "20 min",
-    featured: false
-  },
-  {
-    title: "Healthcare Consolidation and Care Deserts: When Monopolies Kill",
-    summary: "Investigation into hospital mergers and their impact on rural healthcare access and patient outcomes.",
-    date: "December 15, 2023",
-    category: "Culture & Narrative",
-    readTime: "14 min",
-    featured: false
-  }
-];
+import { reports, categories } from '@/data/reports';
 
 const liveUpdates = [
   {
@@ -105,14 +56,6 @@ const liveUpdates = [
   }
 ];
 
-const categories = [
-  "All Reports",
-  "Power & Governance",
-  "Economy & Inequality", 
-  "Technology & Surveillance",
-  "Health & Environment",
-  "Culture & Narrative",
-];
 
 const getIcon = (type: string) => {
   switch (type) {
@@ -136,6 +79,7 @@ const getTypeLabel = (type: string) => {
 
 export const ResearchAndMediaSection = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string>("All Reports");
 
   // Handle escape key to close sidebar
   useEffect(() => {
@@ -306,10 +250,11 @@ export const ResearchAndMediaSection = () => {
           {categories.map((category) => (
             <Button
               key={category}
-              variant={category === "All Reports" ? "default" : "outline"}
-              className={category === "All Reports" 
+              variant={category === activeCategory ? "default" : "outline"}
+              className={category === activeCategory 
                 ? "bg-motion-red hover:bg-red-700 text-white"
                 : "border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"}
+              onClick={() => setActiveCategory(category)}
             >
               {category}
             </Button>
@@ -317,73 +262,97 @@ export const ResearchAndMediaSection = () => {
         </div>
 
         {/* Featured Report */}
-        <div className="mb-16">
-          <h2 className="heading-md text-motion-dark mb-8">Featured Investigation</h2>
-          <Card className="border-2 border-motion-red">
-            <CardContent className="p-8">
-              <div className="flex flex-col lg:flex-row gap-8">
-                <div className="flex-1">
-                  <Badge className="bg-motion-red text-white mb-4">URGENT REPORT</Badge>
-                  <h3 className="heading-sm text-motion-dark mb-4">{reports[0].title}</h3>
-                  <p className="body-md text-motion-gray mb-6">{reports[0].summary}</p>
-                  <div className="flex items-center gap-4 text-sm text-motion-gray mb-6">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      {reports[0].date}
+        {(() => {
+          const filteredReports = activeCategory === "All Reports" 
+            ? reports 
+            : reports.filter(r => r.tags.includes(activeCategory));
+          
+          const featuredReport = filteredReports.find(r => r.featured) || filteredReports[0];
+          
+          if (!featuredReport) return null;
+          
+          return (
+            <div className="mb-16">
+              <h2 className="heading-md text-motion-dark mb-8">Featured Investigation</h2>
+              <Card className="border-2 border-motion-red">
+                <CardContent className="p-8">
+                  <Link to={`/research/${featuredReport.slug}`} className="block">
+                    <div className="flex flex-col lg:flex-row gap-8">
+                      <div className="flex-1">
+                        <Badge className="bg-motion-red text-white mb-4">URGENT REPORT</Badge>
+                        <h3 className="heading-sm text-motion-dark mb-4 hover:text-motion-red transition-colors">{featuredReport.title}</h3>
+                        <p className="body-md text-motion-gray mb-6">{featuredReport.summary}</p>
+                        <div className="flex items-center gap-4 text-sm text-motion-gray mb-6">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-4 w-4" />
+                            {featuredReport.date}
+                          </div>
+                          <span>•</span>
+                          <span>{featuredReport.readTime} read</span>
+                          <span>•</span>
+                          <Badge variant="outline" className="border-motion-gray text-motion-gray">
+                            {featuredReport.category}
+                          </Badge>
+                        </div>
+                        <Button className="bg-motion-red hover:bg-red-700 text-white">
+                          Read Full Report
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
+                      <div className="lg:w-80">
+                        <div className="bg-motion-dark rounded-lg p-6 text-white">
+                          <FileText className="h-16 w-16 text-motion-red mx-auto mb-4" />
+                          <div className="text-center">
+                            <div className="text-2xl font-bold mb-2">47 pages</div>
+                            <div className="text-sm text-motion-light-gray">Comprehensive Analysis</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <span>•</span>
-                    <span>{reports[0].readTime} read</span>
-                    <span>•</span>
-                    <Badge variant="outline" className="border-motion-gray text-motion-gray">
-                      {reports[0].category}
-                    </Badge>
-                  </div>
-                  <Button className="bg-motion-red hover:bg-red-700 text-white">
-                    Read Full Report
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="lg:w-80">
-                  <div className="bg-motion-dark rounded-lg p-6 text-white">
-                    <FileText className="h-16 w-16 text-motion-red mx-auto mb-4" />
-                    <div className="text-center">
-                      <div className="text-2xl font-bold mb-2">47 pages</div>
-                      <div className="text-sm text-motion-light-gray">Comprehensive Analysis</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
+          );
+        })()}
 
         {/* Research Archive */}
         <div>
           <h2 className="heading-md text-motion-dark mb-8">Research Archive</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {reports.slice(1).map((report, index) => (
-              <Card
-                key={index}
-                className="border-motion-gray hover:border-motion-red transition-colors cursor-pointer"
-              >
-                <CardContent className="p-6">
-                  <div className="mb-4">
-                    <Badge variant="outline" className="border-motion-gray text-motion-gray">
-                      {report.category}
-                    </Badge>
-                  </div>
-                  <h3 className="heading-sm text-motion-dark mb-3 line-clamp-2">{report.title}</h3>
-                  <p className="body-sm text-motion-gray mb-4 line-clamp-3">{report.summary}</p>
-                  <div className="flex items-center justify-between text-sm text-motion-gray">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      {report.date}
-                    </div>
-                    <span>{report.readTime} read</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            {(() => {
+              const filteredReports = activeCategory === "All Reports" 
+                ? reports 
+                : reports.filter(r => r.tags.includes(activeCategory));
+              
+              const featuredReport = filteredReports.find(r => r.featured);
+              const archiveReports = featuredReport 
+                ? filteredReports.filter(r => !r.featured)
+                : filteredReports.slice(1);
+              
+              return archiveReports.map((report, index) => (
+                <Link key={index} to={`/research/${report.slug}`}>
+                  <Card className="border-motion-gray hover:border-motion-red transition-colors cursor-pointer h-full">
+                    <CardContent className="p-6">
+                      <div className="mb-4">
+                        <Badge variant="outline" className="border-motion-gray text-motion-gray">
+                          {report.category}
+                        </Badge>
+                      </div>
+                      <h3 className="heading-sm text-motion-dark mb-3 line-clamp-2 hover:text-motion-red transition-colors">{report.title}</h3>
+                      <p className="body-sm text-motion-gray mb-4 line-clamp-3">{report.summary}</p>
+                      <div className="flex items-center justify-between text-sm text-motion-gray">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-4 w-4" />
+                          {report.date}
+                        </div>
+                        <span>{report.readTime} read</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ));
+            })()}
           </div>
           {/* Load More */}
           <div className="text-center mt-12">
