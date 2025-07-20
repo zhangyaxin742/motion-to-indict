@@ -1,7 +1,17 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { TypewriterText } from './TypewriterText';
+import { Users } from 'lucide-react'; 
+import { Link } from 'react-router-dom'; 
 
 export const AboutSection = () => {
+
+    const team = {
+    name: 'Your Name',
+    role: 'Founder & Executive Director',
+    background:
+      'Solo investigative reporter and organizer. I dig through FOIAs, build data pipelines, and hold institutions to account.',
+    // you can swap this out for an <img> if you have a picture
+  }; 
   return (
     <div className="min-h-screen bg-motion-dark text-white">
       <div className="container mx-auto px-8 md:px-16 py-16">
@@ -69,6 +79,41 @@ export const AboutSection = () => {
             </p>
           </section>
         </div>
+
+          {/* Our Team */}
+        <section className="mb-20">
+          <h2 className="heading-md mb-12 text-center">Our Team</h2>
+          <div className="flex justify-center">
+            <Card className="w-full max-w-sm bg-motion-gray/10 border-motion-gray rounded-2xl">
+              <CardContent className="p-8 text-center space-y-4">
+                <div className="w-24 h-24 bg-motion-gray rounded-full mx-auto mb-2 flex items-center justify-center">
+                  <Users className="h-12 w-12 text-motion-light-gray" />
+                </div>
+                <h3 className="heading-sm">{team.name}</h3>
+                <p className="text-motion-red font-medium">{team.role}</p>
+                <p className="body-sm text-motion-light-gray">{team.background}</p>
+                
+                {/* CTA button */}
+                <Link href="/get-involved">
+                  <a className="
+                    inline-block 
+                    mt-4 
+                    px-6 py-2 
+                    bg-red-600 
+                    hover:bg-red-700 
+                    rounded-full 
+                    text-white 
+                    font-medium
+                    transition
+                  ">
+                    Get Involved
+                  </a>
+                </Link>
+              </CardContent>
+            </Card>
+            
+          </div>
+        </section>
       </div>
     </div>
   );
