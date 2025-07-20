@@ -42,7 +42,7 @@ export const AboutSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.05 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.2 }}
+            transition={{ duration: 0.2, delay: i * 0.2 }}
             className="
               bg-gray-800
               border-l-4 border-red-600
