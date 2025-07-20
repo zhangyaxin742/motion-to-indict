@@ -12,7 +12,7 @@ export const AboutSection = () => {
           <h1 className="heading-xl mb-4">
             <span className="red-accent">About Motion to </span>Indict
           </h1>
-          <p className="italic body-lg text-gray-400">
+          <p className="font-oldnews italic body-lg text-gray-400">
             <TypewriterText text="Researchers. Journalists. Advocates. Radicals." />
           </p>
         </div>
