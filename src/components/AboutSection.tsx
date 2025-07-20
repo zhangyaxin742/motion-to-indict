@@ -4,7 +4,7 @@ import { TypewriterText } from './TypewriterText'
 
 export const AboutSection = () => {
   return (
-    <div className="bg-motion-dark text-white">
+    <div className="bg-black text-white">
       <div className="container mx-auto px-12 md:px-24 py-20">
 
         {/* Header */}
@@ -49,8 +49,7 @@ export const AboutSection = () => {
                 border-l-4 border-red-600
                 rounded-lg p-10
                 shadow-2xl
-                hover:bg-gray-700
-                transition
+                hover:bg-gray-700 scale-[1.05]
               "
             >
               <h3 className="heading-sm text-shadow-500 red-accent mb-4">
