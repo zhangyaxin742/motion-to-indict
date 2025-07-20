@@ -29,7 +29,7 @@ export const AboutSection = () => {
             {/* Column 1 */}
             <div>
               <h3 className="heading-sm mb-4 text-shadow-500 red-accent">
-                What We Do
+                Why We Exist
               </h3>
               <p className="body-md text-motion-light-gray-300 mb-6">
                 Motion to Indict conducts rigorous investigations into institutional
@@ -60,54 +60,6 @@ export const AboutSection = () => {
             </div>
           </div>
         </section>
-
-        {/* Commented out additional sections for future use */}
-        {/* 
-        <section className="mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-motion-gray border-motion-light-gray">
-              <CardContent className="p-6">
-                <Target className="w-12 h-12 mb-4 text-motion-red" />
-                <h3 className="heading-sm mb-2 text-white">Our Mission</h3>
-                <p className="body-sm text-motion-light-gray">
-                  To expose institutional failures through rigorous investigation and analysis.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-motion-gray border-motion-light-gray">
-              <CardContent className="p-6">
-                <Users className="w-12 h-12 mb-4 text-motion-red" />
-                <h3 className="heading-sm mb-2 text-white">Our Team</h3>
-                <p className="body-sm text-motion-light-gray">
-                  Young researchers, journalists, and advocates committed to truth.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-motion-gray border-motion-light-gray">
-              <CardContent className="p-6">
-                <Award className="w-12 h-12 mb-4 text-motion-red" />
-                <h3 className="heading-sm mb-2 text-white">Our Impact</h3>
-                <p className="body-sm text-motion-light-gray">
-                  Creating meaningful change through evidence-based advocacy.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        <section className="mb-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <Quote className="w-16 h-16 mx-auto mb-6 text-motion-red" />
-            <blockquote className="body-lg italic text-motion-light-gray mb-4">
-              "We operate independently, funded by individual donors and committed
-              to following evidence wherever it leads."
-            </blockquote>
-            <cite className="body-sm text-white">Motion to Indict Team</cite>
-          </div>
-        </section>
-        */}
 
       </div>
     </div>   
