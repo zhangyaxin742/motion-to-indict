@@ -50,12 +50,6 @@ export const InvolvedSection = () => {
   });
   const [contributeSubmitted, setContributeSubmitted] = useState(false);
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setNewsletterSubmitted(true);
-    setNewsletterEmail('');
-  };
-
   const handleContributeSubmit = (e: React.FormEvent) => {
     e.preventDefault(); 
     setContributeSubmitted(true);
@@ -81,41 +75,6 @@ export const InvolvedSection = () => {
             We welcome anyone committed to evidence-based analysis and systemic change.
           </p>
         </div>
-
-        {/* Newsletter Signup */}
-        <section className="mb-20">
-          <Card className="bg-motion-dark text-white max-w-2xl mx-auto">
-            <CardContent className="p-8 text-center">
-              <Mail className="h-12 w-12 text-motion-red mx-auto mb-4" />
-              <h2 className="heading-md mb-4">Investigation Updates</h2>
-              <p className="body-md text-motion-light-gray mb-6">
-                Get urgent updates, new reports, and exclusive access to ongoing investigations. 
-                No spam, just accountability.
-              </p>
-              
-              {newsletterSubmitted ? (
-                <div className="flex items-center justify-center gap-2 text-green-400">
-                  <CheckCircle className="h-5 w-5" />
-                  <span>You're subscribed! Check your email for confirmation.</span>
-                </div>
-              ) : (
-                <form onSubmit={handleNewsletterSubmit} className="flex gap-3">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    required
-                    className="flex-1 bg-motion-gray/20 border-motion-gray text-white placeholder:text-motion-light-gray"
-                  />
-                  <Button type="submit" className="bg-motion-red hover:bg-red-700">
-                    Subscribe
-                  </Button>
-                </form>
-              )}
-            </CardContent>
-          </Card>
-        </section>
 
         {/* Open Positions */}
         <section className="mb-20">
