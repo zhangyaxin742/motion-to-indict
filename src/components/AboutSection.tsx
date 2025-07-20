@@ -1,63 +1,87 @@
-import React from 'react';                         // only if your build needs it
-import { TypewriterText } from './TypewriterText';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { TypewriterText } from './TypewriterText'
 
 export const AboutSection = () => {
   return (
-    <div className="min-h-screen bg-motion-dark text-white">
-      <div className="container mx-auto px-8 md:px-16 py-16">
+    <div className="bg-motion-dark text-white">
+      <div className="container mx-auto px-12 md:px-24 py-20">
+
         {/* Header */}
-        <div className="max-w-4xl mx-auto mb-16 text-center">
-          <h1 className="heading-xl mb-6">
+        <div className="max-w-4xl mx-auto mb-20 text-center">
+          <h1 className="heading-xl mb-4">
             <span className="red-accent">About Motion to </span>Indict
           </h1>
-          <div className="body-lg text-motion-light-gray">
-            <div className="font-oldnews italic">
-              <TypewriterText text="Researchers. Journalists. Advocates. Radicals." />
-            </div>
-          </div>
+          <p className="italic body-lg text-gray-400">
+            <TypewriterText text="Researchers. Journalists. Advocates. Radicals." />
+          </p>
         </div>
 
-        {/* Two cards side‑by‑side on desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          <section className="bg-motion-gray/10 border border-motion-gray rounded-2xl p-8 shadow-lg transform transition-transform duration-300 hover:scale-[1.02]">
-            <h3 className="heading-sm mb-4 text-shadow-500 red-accent">Why We Exist</h3>
-            <p className="body-md text-motion-light-gray-300 mb-6">
-              Traditional think tanks operate within existing power structures,
-              often dependent on the very institutions they claim to study. We
-              operate independently, funded by individual donors and committed
-              to following evidence wherever it leads.
-            </p>
-            <p className="body-md text-motion-light-gray">
-              As young people, we have nothing to lose and everything to gain
-              from honest, unflinching analysis of how power really operates in
-              America.
-            </p>
-          </section>
+        {/* Two cards + center divider */}
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+          {/* vertical rule on lg */}
+          <div className="hidden lg:block absolute inset-y-0 left-1/2 w-px bg-gray-700" />
 
-          <section className="bg-motion-gray/10 border border-motion-gray rounded-2xl p-8 shadow-lg transform transition-transform duration-300 hover:scale-[1.02]">
-            <h3 className="heading-sm mb-4 red-accent">What We Do</h3>
-            <p className="body-md text-motion-light-gray mb-6">
-              Motion to Indict conducts rigorous investigations into institutional
-              failures, corporate capture, and systemic corruption. We use FOIA
-              requests, data analysis, fieldwork, and direct engagement to expose
-              the mechanisms that allow powerful actors to escape accountability.
-            </p>
-            <p className="body-md text-motion-light-gray">
-              Our research directly informs policy advocacy, legal action, and
-              public campaigns designed to create meaningful institutional change.
-            </p>
-          </section>
+          {[
+            {
+              title: 'Why We Exist',
+              copy: [
+                'Traditional think tanks operate within existing power structures, often dependent on the very institutions they claim to study. We operate independently, funded by individual donors and committed to following evidence wherever it leads.',
+                'As young people, we have nothing to lose and everything to gain from honest, unflinching analysis of how power really operates in America.',
+              ],
+            },
+            {
+              title: 'What We Do',
+              copy: [
+                'Motion to Indict conducts rigorous investigations into institutional failures, corporate capture, and systemic corruption. We use FOIA requests, data analysis, fieldwork, and direct engagement to expose the mechanisms that allow powerful actors to escape accountability.',
+                'Our research directly informs policy advocacy, legal action, and public campaigns designed to create meaningful institutional change.',
+              ],
+            },
+          ].map(({ title, copy }, i) => (
+            <motion.section
+              key={title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="
+                bg-gray-800
+                border-l-4 border-red-600
+                rounded-lg p-10
+                shadow-2xl
+                hover:bg-gray-700
+                transition
+              "
+            >
+              <h3 className="text-2xl font-semibold text-white mb-4 hover:underline">
+                {title}
+              </h3>
+              {copy.map((para, j) => (
+                <p
+                  key={j}
+                  className={`${
+                    j === copy.length - 1 ? 'text-gray-400' : 'text-gray-300'
+                  } mb-6 leading-relaxed`}
+                >
+                  {para}
+                </p>
+              ))}
+            </motion.section>
+          ))}
         </div>
 
-        {/* Call‑to‑Action */}
-        <div className="mt-auto text-center">
+        {/* Sticky, animated CTA */}
+        <div className="sticky bottom-8 flex justify-center z-10">
           <a
             href="/get-involved"
             className="
-              inline-block px-8 py-4 bg-red-600 hover:bg-red-700 text-white
-              font-semibold rounded-full shadow-lg transition transform
-              hover:-translate-y-1 hover:scale-105 focus:outline-none
-              focus:ring-4 focus:ring-red-500/50 animate-pulse
+              inline-block px-10 py-4
+              bg-red-600 hover:bg-red-700
+              text-white font-semibold
+              rounded-full shadow-xl
+              transform transition
+              hover:-translate-y-1 hover:scale-105
+              focus:outline-none focus:ring-4 focus:ring-red-500/50
             "
           >
             Interested? See How You Can Get Involved →
