@@ -6,7 +6,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { FileText, Calendar, ArrowRight, Clock, MapPin, Users, Camera, X, ChevronLeft } from 'lucide-react';
-import { reports, categories } from '@/data/reports';
+import { categories } from '@/data/reports';
+import { useArticles } from '@/hooks/useArticles';
+import { SearchInput } from '@/components/SearchInput';
 
 const liveUpdates = [
   {
@@ -80,6 +82,8 @@ const getTypeLabel = (type: string) => {
 export const ResearchAndMediaSection = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string>("All Reports");
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const { articles, loading } = useArticles();
 
   // Handle escape key to close sidebar
   useEffect(() => {
@@ -245,6 +249,15 @@ export const ResearchAndMediaSection = () => {
           </p>
         </div>
 
+        {/* Search Input */}
+        <div className="max-w-md mx-auto mb-8">
+          <SearchInput 
+            articles={articles} 
+            onResults={setSearchResults}
+            className="w-full"
+          />
+        </div>
+
         {/* Category Filter */}
         <div className="flex flex-wrap gap-3 mb-12 justify-center">
           {categories.map((category) => (
@@ -263,9 +276,12 @@ export const ResearchAndMediaSection = () => {
 
         {/* Featured Report */}
         {(() => {
+          if (loading) return <div>Loading articles...</div>;
+          
+          const availableReports = searchResults.length > 0 ? searchResults : articles;
           const filteredReports = activeCategory === "All Reports" 
-            ? reports 
-            : reports.filter(r => r.tags.includes(activeCategory));
+            ? availableReports 
+            : availableReports.filter(r => r.tags.includes(activeCategory));
           
           const featuredReport = filteredReports.find(r => r.featured) || filteredReports[0];
           
@@ -321,9 +337,12 @@ export const ResearchAndMediaSection = () => {
           <h2 className="heading-md text-motion-dark mb-8">Research Archive</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {(() => {
+              if (loading) return <div>Loading articles...</div>;
+              
+              const availableReports = searchResults.length > 0 ? searchResults : articles;
               const filteredReports = activeCategory === "All Reports" 
-                ? reports 
-                : reports.filter(r => r.tags.includes(activeCategory));
+                ? availableReports 
+                : availableReports.filter(r => r.tags.includes(activeCategory));
               
               const featuredReport = filteredReports.find(r => r.featured);
               const archiveReports = featuredReport 
