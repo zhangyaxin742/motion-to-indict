@@ -32,30 +32,30 @@ export const AboutSection = () => {
                 Why We Exist
               </h3>
               <p className="body-md text-motion-light-gray-300 mb-6">
-                Motion to Indict conducts rigorous investigations into institutional
-                failures, corporate capture, and systemic corruption. We use FOIA
-                requests, data analysis, fieldwork, and direct engagement to expose
-                the mechanisms that allow powerful actors to escape accountability.
-              </p>
-              <p className="body-md text-motion-light-gray">
-                Our research directly informs policy advocacy, legal action, and
-                public campaigns designed to create meaningful institutional change.
-              </p>
-            </div>
-
-            {/* Column 2 */}
-            <div>
-              <h3 className="heading-sm mb-4 red-accent">Why We Exist</h3>
-              <p className="body-md text-motion-light-gray mb-6">
-                Traditional think tanks operate within existing power structures,
+                 Traditional think tanks operate within existing power structures,
                 often dependent on the very institutions they claim to study. We
                 operate independently, funded by individual donors and committed
                 to following evidence wherever it leads.
               </p>
               <p className="body-md text-motion-light-gray">
-                As young people, we have nothing to lose and everything to gain
+                 As young people, we have nothing to lose and everything to gain
                 from honest, unflinching analysis of how power really operates in
                 America.
+              </p>
+            </div>
+
+            {/* Column 2 */}
+            <div>
+              <h3 className="heading-sm mb-4 red-accent">What We Do</h3>
+              <p className="body-md text-motion-light-gray mb-6">
+               Motion to Indict conducts rigorous investigations into institutional
+                failures, corporate capture, and systemic corruption. We use FOIA
+                requests, data analysis, fieldwork, and direct engagement to expose
+                the mechanisms that allow powerful actors to escape accountability.
+              </p>
+              <p className="body-md text-motion-light-gray">
+                  Our research directly informs policy advocacy, legal action, and
+                public campaigns designed to create meaningful institutional change.
               </p>
             </div>
           </div>
