@@ -3,7 +3,7 @@ import { TypewriterText } from './TypewriterText';
 
 export const AboutSection = () => {
   return (
-    <div className="bg-motion-dark text-white">
+    <div className="min-h-screen bg-motion-dark text-white">
       <div className="container mx-auto px-8 md:px-16 py-16">
         {/* Header */}
         <div className="max-w-4xl mx-auto mb-16 text-center">
