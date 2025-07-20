@@ -44,13 +44,13 @@ export const AboutSection = () => (
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.2 }}
             className="
-              bg-gray-700
+              bg-gray-800
               border-l-4 border-red-600
               rounded-lg p-10 shadow-2xl
               transform transition-all
             "
           >
-            <h3 className="text-2xl font-semibold text-red-500 mb-4">
+            <h3 className="heading-sm font-semibold text-red-500 mb-4">
               {c.title}
             </h3>
             {c.copy.map((p, j) => (
