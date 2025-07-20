@@ -1,4 +1,4 @@
-
+{/*
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, MapPin, Users, Camera } from 'lucide-react';
@@ -77,7 +77,7 @@ export const MediaSection = () => {
   return (
     <div className="min-h-screen bg-motion-dark text-white">
       <div className="container mx-auto px-4 py-16">
-        {/* Header */}
+         Header 
         <div className="max-w-4xl mx-auto mb-16">
           <h1 className="heading-xl mb-6">
             In Media <span className="red-accent">Res</span>
@@ -87,7 +87,7 @@ export const MediaSection = () => {
             from ongoing investigations. This is where accountability happens in real time.
           </p>
           
-          {/* Status Bar */}
+          Status Bar 
           <div className="bg-motion-gray/20 rounded-lg p-4 border border-motion-gray">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <div className="flex items-center gap-2">
@@ -101,7 +101,7 @@ export const MediaSection = () => {
           </div>
         </div>
 
-        {/* Live Feed */}
+         Live Feed 
         <div className="space-y-6">
           {liveUpdates.map((update, index) => {
             const IconComponent = getIcon(update.type);
@@ -115,7 +115,7 @@ export const MediaSection = () => {
               >
                 <CardContent className="p-6">
                   <div className="flex flex-col lg:flex-row gap-6">
-                    {/* Icon and Type */}
+                     Icon and Type
                     <div className="flex lg:flex-col items-center lg:items-start gap-3 lg:w-32">
                       <div className="p-3 bg-motion-red/20 rounded-lg">
                         <IconComponent className="h-6 w-6 text-motion-red" />
@@ -130,7 +130,7 @@ export const MediaSection = () => {
                       </Badge>
                     </div>
 
-                    {/* Content */}
+                     Content 
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
                         <h3 className="heading-sm">{update.title}</h3>
@@ -145,7 +145,7 @@ export const MediaSection = () => {
                         {update.content}
                       </p>
 
-                      {/* Metadata */}
+                       Metadata 
                       <div className="flex flex-wrap items-center gap-4 text-sm text-motion-light-gray">
                         <div className="flex items-center gap-1">
                           <Clock className="h-4 w-4" />
@@ -157,7 +157,7 @@ export const MediaSection = () => {
                         </div>
                       </div>
 
-                      {/* Tags */}
+                      Tags 
                       <div className="flex flex-wrap gap-2 mt-4">
                         {update.tags.map((tag, tagIndex) => (
                           <Badge 
@@ -177,7 +177,7 @@ export const MediaSection = () => {
           })}
         </div>
 
-        {/* Archive Notice */}
+        Archive Notice 
         <div className="mt-16 text-center">
           <div className="bg-motion-gray/20 rounded-lg p-8 border border-motion-gray max-w-2xl mx-auto">
             <h3 className="heading-sm mb-4">Secure Archive</h3>
@@ -191,3 +191,4 @@ export const MediaSection = () => {
     </div>
   );
 };
+*/}
