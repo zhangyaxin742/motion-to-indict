@@ -68,12 +68,12 @@ export const AboutSection = () => (
       </div>
 
       {/* CTA */}
-      <div className="sticky bottom-8 flex justify-center">
+      <div className="sticky bottom-8 flex justify-center mt-8">
         <a
           href="/get-involved"
           className="
-            inline-block px-10 py-4 bg-red-600 hover:bg-red-700
-            text-white font-semibold rounded-full shadow-xl
+            inline-block px-12 py-4 bg-red-600 hover:bg-red-700
+            text-white font-semibold rounded-lg shadow-xl max-w-md w-full text-center
             transform transition hover:-translate-y-1 hover:scale-105
             focus:outline-none focus:ring-4 focus:ring-red-500/50
           "
