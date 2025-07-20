@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { Target, Users, Award, Quote } from 'lucide-react';
 import { TypewriterText } from './TypewriterText';
@@ -61,27 +60,27 @@ export const AboutSection = () => {
           </div>
         </section>
 
-        {/* Commented out sections for future implementation */}
-        {/* 
-        // Our Values section
-        const values = [
-          {
-            icon: Target,
-            title: "Accountability First",
-            description: "We don't just document problems—we trace them to their sources and demand answers from those responsible."
-          },
-          {
-            icon: Users,
-            title: "Youth-Led Analysis",
-            description: "Young people are uniquely positioned to see through institutional facades and ask uncomfortable questions."
-          },
-          {
-            icon: Award,
-            title: "Evidence-Based Action", 
-            description: "Every claim is sourced, every investigation is documented, every conclusion is supported by verifiable evidence."
-          }
-        ];
+                {/* 
+                
+                const values = [
+  {
+    icon: Target,
+    title: "Accountability First",
+    description: "We don't just document problems—we trace them to their sources and demand answers from those responsible."
+  },
+  {
+    icon: Users,
+    title: "Youth-Led Analysis",
+    description: "Young people are uniquely positioned to see through institutional facades and ask uncomfortable questions."
+  },
+  {
+    icon: Award,
+    title: "Evidence-Based Action", 
+    description: "Every claim is sourced, every investigation is documented, every conclusion is supported by verifiable evidence."
+  }
+];
 
+Our Values 
         <section className="mb-20">
           <h2 className="heading-md mb-12 text-center">Our Approach</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -100,54 +99,6 @@ export const AboutSection = () => {
           </div>
         </section>
         
-        // Impact Stats section
-        <section>
-          <h2 className="heading-md mb-12 text-center">Our Roadmap</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">Founded</div>
-              <div className="text-motion-light-gray">June 2025</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">5</div>
-              <div className="text-motion-light-gray">Investigations Published</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">1K</div>
-              <div className="text-motion-light-gray">Youth Reached</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold red-accent mb-2">14</div>
-              <div className="text-motion-light-gray">Fieldnotes Captured</div>
-            </div>
-          </div>
-          <h6 className="heading-md mt-12 font-oldnews text-base text-center">
-            <TypewriterText text="...and counting!" />
-          </h6>
-        </section>
-
-        // Leadership Team section
-        const teamMembers = [
-          {
-            name: "Yaxin Zhang", 
-            role: "Founder & Executive Director",
-            background: "Ex-Google researcher specializing in algorithmic accountability and transparency.",
-            image: "photo-1507003211169-0a1dd7228f2d"
-          },
-          {
-            name: "Jordan Thompson",
-            role: "Field Operations Coordinator", 
-            background: "Community organizer with 8 years experience in environmental justice campaigns.",
-            image: "photo-1438761681033-6461ffad8d80"
-          },
-          {
-            name: "Samira Okafor",
-            role: "Legal Research Director",
-            background: "Civil rights attorney and former ACLU staff. Expert in FOIA and transparency law.",
-            image: "photo-1472099645785-5658abf4ff4e"
-          }
-        ];
-
         <section className="mb-20">
           <h2 className="heading-md mb-12 text-center">Leadership Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -165,9 +116,29 @@ export const AboutSection = () => {
             ))}
           </div>
         </section> 
-        */}
+const teamMembers = [
+  {
+    name: "Yaxin Zhang", 
+    role: "Founder & Executive Director",
+    background: "Ex-Google researcher specializing in algorithmic accountability and transparency.",
+    image: "photo-1507003211169-0a1dd7228f2d"
+  },
+  {
+    name: "Jordan Thompson",
+    role: "Field Operations Coordinator", 
+    background: "Community organizer with 8 years experience in environmental justice campaigns.",
+    image: "photo-1438761681033-6461ffad8d80"
+  },
+  {
+    name: "Samira Okafor",
+    role: "Legal Research Director",
+    background: "Civil rights attorney and former ACLU staff. Expert in FOIA and transparency law.",
+    image: "photo-1472099645785-5658abf4ff4e"
+  }
+];
+*/}
 
-      </div> {/* closes .container */}
-    </div> {/* closes .min-h-screen */}
+              </div> {/* ← closes .container */}
+    </div> {/* ← closes .min-h-screen */}
   );
-};
+}; 
