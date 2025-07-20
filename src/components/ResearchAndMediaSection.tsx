@@ -6,7 +6,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { FileText, Calendar, ArrowRight, Clock, MapPin, Users, Camera, X, ChevronLeft } from 'lucide-react';
-import matter from 'gray-matter';
+import matter from 'gray-matter'; 
+import { Buffer } from 'buffer';
+window.Buffer = Buffer;
 
 // Categories for filtering
 const categories = [
@@ -110,6 +112,7 @@ export const ResearchAndMediaSection = () => {
       try {
         // Import all MDX files
         const modules = import.meta.glob('/src/articles/*.mdx', { as: 'raw' });
+        console.log('glob modules:', Object.keys(modules)); 
         const articlePromises = Object.entries(modules).map(async ([path, moduleLoader]) => {
           const content = await moduleLoader();
           const { data } = matter(content);
