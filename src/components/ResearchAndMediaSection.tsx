@@ -35,7 +35,7 @@ const reports = [
     title: "Digital Redlining: Broadband Access and the New Geography of Inequality",
     summary: "Mapping the correlation between historical redlining and contemporary internet infrastructure gaps.",
     date: "January 22, 2024",
-    category: "Technology & Rights",
+    category: "Technology & Surveillance",
     readTime: "10 min",
     featured: false
   },
