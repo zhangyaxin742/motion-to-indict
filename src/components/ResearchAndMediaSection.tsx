@@ -111,7 +111,7 @@ export const ResearchAndMediaSection = () => {
     const loadArticles = async () => {
       try {
         // Import all MDX files
-        const modules = import.meta.glob('/src/articles/*.mdx', { as: 'raw' });
+        const modules = import.meta.glob('../articles/*.mdx', { as: 'raw' });
         console.log('glob modules:', Object.keys(modules)); 
         const articlePromises = Object.entries(modules).map(async ([path, moduleLoader]) => {
           const content = await moduleLoader();
@@ -125,7 +125,7 @@ export const ResearchAndMediaSection = () => {
             tags: data.tags || [],
             featured: data.featured || false,
             summary: data.summary,
-            category: data.tags?.[0] || 'Uncategorized' // Use first tag as category for compatibility
+            category: data.category || 'Uncategorized' // Use first tag as category for compatibility
           } as Article;
         });
 
@@ -143,6 +143,18 @@ export const ResearchAndMediaSection = () => {
     loadArticles();
   }, []);
 
+  // ── single filter + split logic ──────────────────────────────────────────
+  const filteredArticles = activeCategory === "All Reports"
+    ? articles
+    : articles.filter(a => a.category === activeCategory);
+
+  const featuredArticle =
+    filteredArticles.find(a => a.featured) || filteredArticles[0];
+
+  const archiveArticles = featuredArticle
+    ? filteredArticles.filter(a => a.slug !== featuredArticle.slug)
+    : filteredArticles.slice(1);
+  
   // Handle escape key to close sidebar
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -293,172 +305,156 @@ export const ResearchAndMediaSection = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <h1 className="heading-xl text-motion-dark mb-6">
-            Research & <span className="red-accent">Commentary</span>
-          </h1>
-          <p className="body-lg text-motion-gray">
-            In-depth investigations, policy analysis, and urgent commentary on the systems 
-            that shape our world. Our research doesn't just document problems—it exposes 
-            the mechanisms of power that create and sustain them.
-          </p>
-        </div>
+  {/* Main Content */}
+  <div className="container mx-auto px-4 py-16">
+    {/* Header */}
+    <div className="max-w-4xl mx-auto mb-16">
+      <h1 className="heading-xl text-motion-dark mb-6">
+        Research & <span className="red-accent">Commentary</span>
+      </h1>
+      <p className="body-lg text-motion-gray">
+        In-depth investigations, policy analysis, and urgent commentary on the systems 
+        that shape our world. Our research doesn't just document problems—it exposes 
+        the mechanisms of power that create and sustain them.
+      </p>
+    </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-3 mb-12 justify-center">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={category === activeCategory ? "default" : "outline"}
-              className={category === activeCategory 
-                ? "bg-motion-red hover:bg-red-700 text-white"
-                : "border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </Button>
-          ))}
-        </div>
+    {/* Category Filter */}
+    <div className="flex flex-wrap gap-3 mb-12 justify-center">
+      {categories.map((category) => (
+        <Button
+          key={category}
+          variant={category === activeCategory ? "default" : "outline"}
+          className={category === activeCategory 
+            ? "bg-motion-red hover:bg-red-700 text-white"
+            : "border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"}
+          onClick={() => setActiveCategory(category)}
+        >
+          {category}
+        </Button>
+      ))}
+    </div>
 
-        {/* Featured Report */}
-        {(() => {
-          if (loading) {
-            return (
-              <div className="mb-16">
-                <h2 className="heading-md text-motion-dark mb-8">Featured Investigation</h2>
-                <Card className="border-2 border-motion-gray animate-pulse">
-                  <CardContent className="p-8">
-                    <div className="h-4 bg-motion-gray/20 rounded mb-4"></div>
-                    <div className="h-8 bg-motion-gray/20 rounded mb-4"></div>
-                    <div className="h-16 bg-motion-gray/20 rounded"></div>
-                  </CardContent>
-                </Card>
-              </div>
-            );
-          }
+    {/* Featured Investigation */}
+    <div className="mb-16">
+      <h2 className="heading-md text-motion-dark mb-8">Featured Investigation</h2>
 
-          const filteredArticles = activeCategory === "All Reports" 
-            ? articles 
-            : articles.filter(a => a.tags.includes(activeCategory));
-          
-          const featuredArticle = filteredArticles.find(a => a.featured) || filteredArticles[0];
-          
-          if (!featuredArticle) return null;
-          
-          return (
-            <div className="mb-16">
-              <h2 className="heading-md text-motion-dark mb-8">Featured Investigation</h2>
-              <Card className="border-2 border-motion-red">
-                <CardContent className="p-8">
-                  <Link to={`/articles/${featuredArticle.slug}`} className="block">
-                    <div className="flex flex-col lg:flex-row gap-8">
-                      <div className="flex-1">
-                        <Badge className="bg-motion-red text-white mb-4">URGENT REPORT</Badge>
-                        <h3 className="heading-sm text-motion-dark mb-4 hover:text-motion-red transition-colors">{featuredArticle.title}</h3>
-                        <p className="body-md text-motion-gray mb-6">{featuredArticle.summary}</p>
-                        <div className="flex items-center gap-4 text-sm text-motion-gray mb-6">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4" />
-                            {featuredArticle.date}
-                          </div>
-                          <span>•</span>
-                          <span>{featuredArticle.readTime} read</span>
-                          <span>•</span>
-                          <Badge variant="outline" className="border-motion-gray text-motion-gray">
-                            {featuredArticle.category}
-                          </Badge>
-                        </div>
-                        <Button className="bg-motion-red hover:bg-red-700 text-white">
-                          Read Full Report
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </div>
-                      <div className="lg:w-80">
-                        <div className="bg-motion-dark rounded-lg p-6 text-white">
-                          <FileText className="h-16 w-16 text-motion-red mx-auto mb-4" />
-                          <div className="text-center">
-                            <div className="text-2xl font-bold mb-2">47 pages</div>
-                            <div className="text-sm text-motion-light-gray">Comprehensive Analysis</div>
-                          </div>
-                        </div>
-                      </div>
+      {loading ? (
+        // skeleton loader
+        <Card className="border-2 border-motion-gray animate-pulse">
+          <CardContent className="p-8">
+            <div className="h-4 bg-motion-gray/20 rounded mb-4"></div>
+            <div className="h-8 bg-motion-gray/20 rounded mb-4"></div>
+            <div className="h-16 bg-motion-gray/20 rounded"></div>
+          </CardContent>
+        </Card>
+      ) : featuredArticle ? (
+        // actual featured card
+        <Card className="border-2 border-motion-red">
+          <CardContent className="p-8">
+            <Link to={`/articles/${featuredArticle.slug}`} className="block">
+              <div className="flex flex-col lg:flex-row gap-8">
+                <div className="flex-1">
+                  <Badge className="bg-motion-red text-white mb-4">URGENT REPORT</Badge>
+                  <h3 className="heading-sm text-motion-dark mb-4 hover:text-motion-red transition-colors">
+                    {featuredArticle.title}
+                  </h3>
+                  <p className="body-md text-motion-gray mb-6">{featuredArticle.summary}</p>
+                  <div className="flex items-center gap-4 text-sm text-motion-gray mb-6">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      {featuredArticle.date}
                     </div>
-                  </Link>
+                    <span>•</span>
+                    <span>{featuredArticle.readTime} read</span>
+                    <span>•</span>
+                    <Badge variant="outline" className="border-motion-gray text-motion-gray">
+                      {featuredArticle.category}
+                    </Badge>
+                  </div>
+                  <Button className="bg-motion-red hover:bg-red-700 text-white">
+                    Read Full Report
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="lg:w-80">
+                  <div className="bg-motion-dark rounded-lg p-6 text-white">
+                    <FileText className="h-16 w-16 text-motion-red mx-auto mb-4" />
+                    <div className="text-center">
+                      <div className="text-2xl font-bold mb-2">47 pages</div>
+                      <div className="text-sm text-motion-light-gray">Comprehensive Analysis</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </CardContent>
+        </Card>
+      ) : null}
+    </div>
+
+    {/* Research Archive */}
+    <div>
+      <h2 className="heading-md text-motion-dark mb-8">Research Archive</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {loading ? (
+          // skeleton loaders
+          Array.from({ length: 4 }).map((_, index) => (
+            <Card key={index} className="border-motion-gray animate-pulse h-full">
+              <CardContent className="p-6">
+                <div className="h-4 bg-motion-gray/20 rounded mb-4"></div>
+                <div className="h-6 bg-motion-gray/20 rounded mb-3"></div>
+                <div className="h-12 bg-motion-gray/20 rounded mb-4"></div>
+                <div className="flex justify-between">
+                  <div className="h-4 bg-motion-gray/20 rounded w-20"></div>
+                  <div className="h-4 bg-motion-gray/20 rounded w-16"></div>
+                </div>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          // actual archive cards
+          archiveArticles.map((article, index) => (
+            <Link key={index} to={`/articles/${article.slug}`}>
+              <Card className="border-motion-gray hover:border-motion-red transition-colors cursor-pointer h-full">
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    <Badge variant="outline" className="border-motion-gray text-motion-gray">
+                      {article.category}
+                    </Badge>
+                  </div>
+                  <h3 className="heading-sm text-motion-dark mb-3 line-clamp-2 hover:text-motion-red transition-colors">
+                    {article.title}
+                  </h3>
+                  <p className="body-sm text-motion-gray mb-4 line-clamp-3">
+                    {article.summary}
+                  </p>
+                  <div className="flex items-center justify-between text-sm text-motion-gray">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      {article.date}
+                    </div>
+                    <span>{article.readTime} read</span>
+                  </div>
                 </CardContent>
               </Card>
-            </div>
-          );
-        })()}
-
-        {/* Research Archive */}
-        <div>
-          <h2 className="heading-md text-motion-dark mb-8">Research Archive</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {(() => {
-              if (loading) {
-                return Array.from({ length: 4 }).map((_, index) => (
-                  <Card key={index} className="border-motion-gray animate-pulse h-full">
-                    <CardContent className="p-6">
-                      <div className="h-4 bg-motion-gray/20 rounded mb-4"></div>
-                      <div className="h-6 bg-motion-gray/20 rounded mb-3"></div>
-                      <div className="h-12 bg-motion-gray/20 rounded mb-4"></div>
-                      <div className="flex justify-between">
-                        <div className="h-4 bg-motion-gray/20 rounded w-20"></div>
-                        <div className="h-4 bg-motion-gray/20 rounded w-16"></div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ));
-              }
-
-              const filteredArticles = activeCategory === "All Reports" 
-                ? articles 
-                : articles.filter(a => a.tags.includes(activeCategory));
-              
-              const featuredArticle = filteredArticles.find(a => a.featured);
-              const archiveArticles = featuredArticle 
-                ? filteredArticles.filter(a => !a.featured)
-                : filteredArticles.slice(1);
-              
-              return archiveArticles.map((article, index) => (
-                <Link key={index} to={`/articles/${article.slug}`}>
-                  <Card className="border-motion-gray hover:border-motion-red transition-colors cursor-pointer h-full">
-                    <CardContent className="p-6">
-                      <div className="mb-4">
-                        <Badge variant="outline" className="border-motion-gray text-motion-gray">
-                          {article.category}
-                        </Badge>
-                      </div>
-                      <h3 className="heading-sm text-motion-dark mb-3 line-clamp-2 hover:text-motion-red transition-colors">{article.title}</h3>
-                      <p className="body-sm text-motion-gray mb-4 line-clamp-3">{article.summary}</p>
-                      <div className="flex items-center justify-between text-sm text-motion-gray">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {article.date}
-                        </div>
-                        <span>{article.readTime} read</span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ));
-            })()}
-          </div>
-          {/* Load More */}
-          <div className="text-center mt-12">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"
-            >
-              Load More Reports
-            </Button>
-          </div>
-        </div>
+            </Link>
+          ))
+        )}
       </div>
+
+      {/* Load More */}
+      <div className="text-center mt-12">
+        <Button
+          variant="outline"
+          size="lg"
+          className="border-motion-gray text-motion-gray hover:border-motion-red hover:text-motion-red"
+        >
+          Load More Reports
+        </Button>
+      </div>
+    </div>
+  </div>
     </div>
   );
 };
