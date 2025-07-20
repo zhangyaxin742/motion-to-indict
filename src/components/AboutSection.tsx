@@ -5,8 +5,8 @@ import { TypewriterText } from './TypewriterText';
 
 export const AboutSection = () => {
   return (
-    <div className="min-h-screen bg-motion-dark text-white">
-      <div className="container mx-auto px-4 py-16">
+    <div className="bg-motion-dark text-white">
+     <div className="container mx-auto px-8 md:px-16 py-16">
         {/* Header */}
         <div className="max-w-4xl mx-auto mb-16 text-center">
           <h1 className="heading-xl mb-6">
@@ -16,15 +16,19 @@ export const AboutSection = () => {
             <div className="font-oldnews italic">
               <TypewriterText text="Researchers. Journalists. Advocates. Radicals." />
             </div>
-            <p className="mt-4 font-oldnews text-base text-white">
-              We collect evidence, interrogate facts, and indict systems by the very
-              standards they claim to uphold.
-            </p>
           </div>
         </div>
 
         {/* Mission Statement */}
-        <section className="mb-20">
+        <section
+  className="
+    mb-20
+    bg-motion-gray/10 
+    border border-motion-gray 
+    rounded-2xl p-8 shadow-lg
+    transform transition-transform duration-300
+    hover:scale-[1.02]
+  ">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Column 1 */}
             <div>
