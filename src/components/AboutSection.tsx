@@ -27,7 +27,7 @@ export const AboutSection = () => (
         <h1 className="heading-xl mb-4">
           <span className="red-accent">About Motion to </span>Indict
         </h1>
-        <p className="italic body-lg text-gray-400">
+        <p className="font-oldnews italic body-lg text-gray-400">
           <TypewriterText text="Researchers. Journalists. Advocates. Radicals." />
         </p>
       </div>
@@ -78,7 +78,7 @@ export const AboutSection = () => (
             focus:outline-none focus:ring-4 focus:ring-red-500/50
           "
         >
-          Interested? See How You Can Get Involved →
+          Interested? Apply For Our Team →
         </a>
       </div>
     </div>
