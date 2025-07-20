@@ -4,7 +4,7 @@ import { TypewriterText } from './TypewriterText'
 
 export const AboutSection = () => {
   return (
-    <div className="bg-motion-dark-800 text-white">
+    <div className="bg-motion-dark text-white">
       <div className="container mx-auto px-12 md:px-24 py-20">
 
         {/* Header */}
