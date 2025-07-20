@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import { ResearchArticle } from "./pages/ResearchArticle";
+import { ArticlePage } from "./pages/ArticlePage";
 import Footer from "@/components/Footer"; // make sure this import path is correct
 
 const queryClient = new QueryClient();
@@ -18,7 +18,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/research/:slug" element={<ResearchArticle />} />
+          <Route path="/articles/:slug" element={<ArticlePage />} />
           {/* Add all custom routes here */}
           <Route path="*" element={<NotFound />} />
         </Routes>
