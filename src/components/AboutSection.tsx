@@ -53,7 +53,7 @@ export const AboutSection = () => {
                 transition
               "
             >
-              <h3 className="text-2xl font-semibold text-white mb-4 hover:underline">
+              <<h3 className="heading-sm mb-4 text-shadow-500 red-accent">
                 {title}
               </h3>
               {copy.map((para, j) => (
