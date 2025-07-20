@@ -58,6 +58,7 @@ export const AboutSection = () => {
                 America.
               </p>
           </div>
+          </div>
         </section>
 
       </div> {/* closes .container */}
