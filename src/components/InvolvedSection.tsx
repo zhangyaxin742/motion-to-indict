@@ -44,8 +44,7 @@ export const InvolvedSection = () => {
   const [contributeForm, setContributeForm] = useState({
     name: '',
     email: '',
-    skills: '',
-    interest: '',
+    subject: '',
     message: ''
   });
   const [contributeSubmitted, setContributeSubmitted] = useState(false);
@@ -56,8 +55,7 @@ export const InvolvedSection = () => {
     setContributeForm({
       name: '',
       email: '',
-      skills: '',
-      interest: '',
+      subject: '',
       message: ''
     });
   };
@@ -71,8 +69,8 @@ export const InvolvedSection = () => {
             Get <span className="red-accent">Involved</span>
           </h1>
           <p className="body-lg text-motion-gray">
-            Join a community of researchers, investigators, and accountability advocates. 
-            We welcome anyone committed to evidence-based analysis and systemic change.
+            Join a community of young researchers and advocates comitted to systemic change.
+            All positions are remote-friendly with flexible scheduling.
           </p>
         </div>
 
@@ -80,10 +78,6 @@ export const InvolvedSection = () => {
         <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="heading-md text-motion-dark mb-4">Open Positions</h2>
-            <p className="body-md text-motion-gray max-w-2xl mx-auto">
-              We're looking for committed researchers and investigators to join our teams. 
-              All positions are remote-friendly with flexible scheduling.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -158,15 +152,9 @@ export const InvolvedSection = () => {
                     </div>
                     
                     <Input
-                      placeholder="Your skills/background"
-                      value={contributeForm.skills}
-                      onChange={(e) => setContributeForm({...contributeForm, skills: e.target.value})}
-                    />
-                    
-                    <Input
-                      placeholder="Area of interest"
-                      value={contributeForm.interest}
-                      onChange={(e) => setContributeForm({...contributeForm, interest: e.target.value})}
+                      placeholder="What's this about?"
+                      value={contributeForm.subject}
+                      onChange={(e) => setContributeForm({...contributeForm, subject: e.target.value})}
                     />
                     
                     <Textarea
